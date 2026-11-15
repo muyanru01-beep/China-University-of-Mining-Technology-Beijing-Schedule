@@ -1,0 +1,11 @@
+# Android / Gradle local outputs
+.gradle/
+.gradle_portable/
+**/build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+.idea/
+*.iml

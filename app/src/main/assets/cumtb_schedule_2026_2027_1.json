@@ -1,0 +1,4270 @@
+{
+  "metadata": {
+    "university": "中国矿业大学（北京）",
+    "system": "研究生信息管理系统",
+    "studentName": "同学",
+    "semesterCode": "2026-20271",
+    "semesterName": "2026-2027学年第一学期",
+    "semesterStartMonday": "2026-08-31",
+    "semesterEndSunday": "2027-01-17",
+    "totalWeeks": 20,
+    "referenceCurrentDate": "2026-11-12",
+    "referenceCurrentWeek": 11,
+    "referenceCurrentWeekday": "星期四",
+    "calendarSourceTitle": "关于做好2026-2027学年第一学期本科生排课工作的通知 - 中国矿业大学（北京）教务处",
+    "calendarSourceUrl": "https://jwc.cumtb.edu.cn/info/1068/6105.htm"
+  },
+  "periodRules": [
+    {
+      "period": 1,
+      "section": "上午",
+      "defaultStart": "08:00",
+      "defaultEnd": "08:45",
+      "variants": {
+        "default": {
+          "start": "08:00",
+          "end": "08:45"
+        }
+      }
+    },
+    {
+      "period": 2,
+      "section": "上午",
+      "defaultStart": "08:50",
+      "defaultEnd": "09:35",
+      "variants": {
+        "default": {
+          "start": "08:50",
+          "end": "09:35"
+        }
+      }
+    },
+    {
+      "period": 3,
+      "section": "上午",
+      "defaultStart": "09:50",
+      "defaultEnd": "10:35",
+      "note": "学院路校区 09:55-10:40；沙教一、二号楼 10:10-10:55；沙教三、四号楼、沙河体育场 09:50-10:35",
+      "variants": {
+        "学院路校区": {
+          "start": "09:55",
+          "end": "10:40"
+        },
+        "沙教一、二号楼": {
+          "start": "10:10",
+          "end": "10:55"
+        },
+        "沙教三、四号楼": {
+          "start": "09:50",
+          "end": "10:35"
+        },
+        "default": {
+          "start": "09:50",
+          "end": "10:35"
+        }
+      }
+    },
+    {
+      "period": 4,
+      "section": "上午",
+      "defaultStart": "10:40",
+      "defaultEnd": "11:25",
+      "note": "学院路校区 10:45-11:30；沙教一、二号楼 11:00-11:45；沙教三、四号楼、沙河体育场 10:40-11:25",
+      "variants": {
+        "学院路校区": {
+          "start": "10:45",
+          "end": "11:30"
+        },
+        "沙教一、二号楼": {
+          "start": "11:00",
+          "end": "11:45"
+        },
+        "沙教三、四号楼": {
+          "start": "10:40",
+          "end": "11:25"
+        },
+        "default": {
+          "start": "10:40",
+          "end": "11:25"
+        }
+      }
+    },
+    {
+      "period": 5,
+      "section": "下午",
+      "defaultStart": "13:30",
+      "defaultEnd": "14:15",
+      "variants": {
+        "default": {
+          "start": "13:30",
+          "end": "14:15"
+        }
+      }
+    },
+    {
+      "period": 6,
+      "section": "下午",
+      "defaultStart": "14:20",
+      "defaultEnd": "15:05",
+      "variants": {
+        "default": {
+          "start": "14:20",
+          "end": "15:05"
+        }
+      }
+    },
+    {
+      "period": 7,
+      "section": "下午",
+      "defaultStart": "15:20",
+      "defaultEnd": "16:05",
+      "variants": {
+        "default": {
+          "start": "15:20",
+          "end": "16:05"
+        }
+      }
+    },
+    {
+      "period": 8,
+      "section": "下午",
+      "defaultStart": "16:10",
+      "defaultEnd": "16:55",
+      "variants": {
+        "default": {
+          "start": "16:10",
+          "end": "16:55"
+        }
+      }
+    },
+    {
+      "period": 9,
+      "section": "下午",
+      "defaultStart": "17:00",
+      "defaultEnd": "17:45",
+      "variants": {
+        "default": {
+          "start": "17:00",
+          "end": "17:45"
+        }
+      }
+    },
+    {
+      "period": 10,
+      "section": "晚上",
+      "defaultStart": "19:00",
+      "defaultEnd": "19:45",
+      "variants": {
+        "default": {
+          "start": "19:00",
+          "end": "19:45"
+        }
+      }
+    },
+    {
+      "period": 11,
+      "section": "晚上",
+      "defaultStart": "19:50",
+      "defaultEnd": "20:35",
+      "variants": {
+        "default": {
+          "start": "19:50",
+          "end": "20:35"
+        }
+      }
+    },
+    {
+      "period": 12,
+      "section": "晚上",
+      "defaultStart": "20:40",
+      "defaultEnd": "21:25",
+      "variants": {
+        "default": {
+          "start": "20:40",
+          "end": "21:25"
+        }
+      }
+    }
+  ],
+  "courses": [
+    {
+      "id": "c_mon_1_2_eng",
+      "courseCode": "TS24008001G",
+      "courseName": "学术交流英语",
+      "className": "学术交流英语13班（地测学硕3+文法学硕）",
+      "dayOfWeek": 1,
+      "weekdayName": "星期一",
+      "startPeriod": 1,
+      "endPeriod": 2,
+      "periods": [
+        1,
+        2
+      ],
+      "buildingGroup": "沙教一、二号楼",
+      "location": "沙教1-602",
+      "startTime": "08:00",
+      "endTime": "09:35",
+      "weeksText": "2-5, 7-10周",
+      "weeks": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "defaultTeacher": "林莉",
+      "teacherByWeek": {
+        "2": "林莉",
+        "3": "林莉",
+        "4": "林莉",
+        "5": "林莉",
+        "7": "林莉",
+        "8": "林莉",
+        "9": "林莉",
+        "10": "林莉"
+      },
+      "color": "#2563eb",
+      "rawText": "TS24008001G|学术交流英语13班（地测学硕3+文法学硕）(2-5、7-10周[教师:林莉,地点:沙教1-602])"
+    },
+    {
+      "id": "c_mon_5_6_soc",
+      "courseCode": "XS24008001Y",
+      "courseName": "社会研究方法",
+      "className": "社会研究方法1班",
+      "dayOfWeek": 1,
+      "weekdayName": "星期一",
+      "startPeriod": 5,
+      "endPeriod": 6,
+      "periods": [
+        5,
+        6
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教4-405",
+      "startTime": "13:30",
+      "endTime": "15:05",
+      "weeksText": "3-4, 5, 7-9, 10-11周",
+      "weeks": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "defaultTeacher": "卢玮静 / 谢起慧 / 谭爽",
+      "teacherByWeek": {
+        "3": "卢玮静",
+        "4": "卢玮静",
+        "5": "谢起慧",
+        "7": "谢起慧",
+        "8": "谢起慧",
+        "9": "谢起慧",
+        "10": "谭爽",
+        "11": "谭爽"
+      },
+      "color": "#7c3aed",
+      "rawText": "XS24008001Y|社会研究方法1班(3-4周[教师:卢玮静]、5、7-9周[教师:谢起慧]、10-11周[教师:谭爽][地点:沙教4-405])"
+    },
+    {
+      "id": "c_mon_5_6_nat",
+      "courseCode": "TS24009001G",
+      "courseName": "自然辩证法概论",
+      "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+      "dayOfWeek": 1,
+      "weekdayName": "星期一",
+      "startPeriod": 5,
+      "endPeriod": 6,
+      "periods": [
+        5,
+        6
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教4-505",
+      "startTime": "13:30",
+      "endTime": "15:05",
+      "weeksText": "12-16周",
+      "weeks": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "defaultTeacher": "刘晓君",
+      "teacherByWeek": {
+        "12": "刘晓君",
+        "13": "刘晓君",
+        "14": "刘晓君",
+        "15": "刘晓君",
+        "16": "刘晓君"
+      },
+      "color": "#059669",
+      "rawText": "TS24009001G|自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）(12-16周[教师:刘晓君,地点:沙教4-505])"
+    },
+    {
+      "id": "c_mon_7_8_nat",
+      "courseCode": "TS24009001G",
+      "courseName": "自然辩证法概论",
+      "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+      "dayOfWeek": 1,
+      "weekdayName": "星期一",
+      "startPeriod": 7,
+      "endPeriod": 8,
+      "periods": [
+        7,
+        8
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教4-505",
+      "startTime": "15:20",
+      "endTime": "16:55",
+      "weeksText": "12-15周",
+      "weeks": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "defaultTeacher": "刘晓君",
+      "teacherByWeek": {
+        "12": "刘晓君",
+        "13": "刘晓君",
+        "14": "刘晓君",
+        "15": "刘晓君"
+      },
+      "color": "#059669",
+      "rawText": "TS24009001G|自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）(12-15周[教师:刘晓君,地点:沙教4-505])"
+    },
+    {
+      "id": "c_wed_1_2_eng",
+      "courseCode": "TS24008001G",
+      "courseName": "学术交流英语",
+      "className": "学术交流英语13班（地测学硕3+文法学硕）",
+      "dayOfWeek": 3,
+      "weekdayName": "星期三",
+      "startPeriod": 1,
+      "endPeriod": 2,
+      "periods": [
+        1,
+        2
+      ],
+      "buildingGroup": "沙教一、二号楼",
+      "location": "沙教1-602",
+      "startTime": "08:00",
+      "endTime": "09:35",
+      "weeksText": "2-5, 7-10周",
+      "weeks": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "defaultTeacher": "林莉",
+      "teacherByWeek": {
+        "2": "林莉",
+        "3": "林莉",
+        "4": "林莉",
+        "5": "林莉",
+        "7": "林莉",
+        "8": "林莉",
+        "9": "林莉",
+        "10": "林莉"
+      },
+      "color": "#2563eb",
+      "rawText": "TS24008001G|学术交流英语13班（地测学硕3+文法学硕）(2-5、7-10周[教师:林莉,地点:沙教1-602])"
+    },
+    {
+      "id": "c_wed_3_4_soc",
+      "courseCode": "XS24008001Y",
+      "courseName": "社会研究方法",
+      "className": "社会研究方法1班",
+      "dayOfWeek": 3,
+      "weekdayName": "星期三",
+      "startPeriod": 3,
+      "endPeriod": 4,
+      "periods": [
+        3,
+        4
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教3-302",
+      "startTime": "09:50",
+      "endTime": "11:25",
+      "weeksText": "3-4, 5, 7-9, 10-11周",
+      "weeks": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "defaultTeacher": "卢玮静 / 南锐 / 谭爽",
+      "teacherByWeek": {
+        "3": "卢玮静",
+        "4": "卢玮静",
+        "5": "南锐",
+        "7": "南锐",
+        "8": "南锐",
+        "9": "南锐",
+        "10": "谭爽",
+        "11": "谭爽"
+      },
+      "color": "#7c3aed",
+      "rawText": "XS24008001Y|社会研究方法1班(3-4周[教师:卢玮静]、5、7-9周[教师:南锐]、10-11周[教师:谭爽][地点:沙教3-302])"
+    },
+    {
+      "id": "c_thu_7_9_ling",
+      "courseCode": "XS24008003Y",
+      "courseName": "语言学与文学理论",
+      "className": "语言学与文学理论1班",
+      "dayOfWeek": 4,
+      "weekdayName": "星期四",
+      "startPeriod": 7,
+      "endPeriod": 9,
+      "periods": [
+        7,
+        8,
+        9
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教4-505",
+      "startTime": "15:20",
+      "endTime": "17:45",
+      "weeksText": "3-4, 6-11周",
+      "weeks": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "defaultTeacher": "朱峰",
+      "teacherByWeek": {
+        "3": "朱峰",
+        "4": "朱峰",
+        "6": "朱峰",
+        "7": "朱峰",
+        "8": "朱峰",
+        "9": "朱峰",
+        "10": "朱峰",
+        "11": "朱峰"
+      },
+      "color": "#d97706",
+      "rawText": "XS24008003Y|语言学与文学理论1班(3-4、6-11周[教师:朱峰,地点:沙教4-505])"
+    },
+    {
+      "id": "c_fri_1_4_marx",
+      "courseCode": "XS24009002Y",
+      "courseName": "马克思主义理论前沿研究",
+      "className": "马克思主义理论前沿研究1班",
+      "dayOfWeek": 5,
+      "weekdayName": "星期五",
+      "startPeriod": 1,
+      "endPeriod": 4,
+      "periods": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "buildingGroup": "沙教一、二号楼",
+      "location": "沙教1-303",
+      "startTime": "08:00",
+      "endTime": "11:45",
+      "weeksText": "6-14周",
+      "weeks": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "defaultTeacher": "盖逸馨等9位教师轮讲",
+      "teacherByWeek": {
+        "6": "盖逸馨",
+        "7": "杨磊",
+        "8": "刘晓霞",
+        "9": "李洪树",
+        "10": "卢刚",
+        "11": "韩淑慧",
+        "12": "曾庆桃",
+        "13": "姜男",
+        "14": "崔世良"
+      },
+      "color": "#e11d48",
+      "rawText": "XS24009002Y|马克思主义理论前沿研究1班(6周[教师:盖逸馨]、7周[教师:杨磊]、8周[教师:刘晓霞]、9周[教师:李洪树]、10周[教师:卢刚]、11周[教师:韩淑慧]、12周[教师:曾庆桃]、13周[教师:姜男]、14周[教师:崔世良][地点:沙教1-303])"
+    },
+    {
+      "id": "c_fri_7_9_ling",
+      "courseCode": "XS24008003Y",
+      "courseName": "语言学与文学理论",
+      "className": "语言学与文学理论1班",
+      "dayOfWeek": 5,
+      "weekdayName": "星期五",
+      "startPeriod": 7,
+      "endPeriod": 9,
+      "periods": [
+        7,
+        8,
+        9
+      ],
+      "buildingGroup": "沙教三、四号楼",
+      "location": "沙教4-505",
+      "startTime": "15:20",
+      "endTime": "17:45",
+      "weeksText": "3, 6-12周",
+      "weeks": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "defaultTeacher": "杨松",
+      "teacherByWeek": {
+        "3": "杨松",
+        "6": "杨松",
+        "7": "杨松",
+        "8": "杨松",
+        "9": "杨松",
+        "10": "杨松",
+        "11": "杨松",
+        "12": "杨松"
+      },
+      "color": "#d97706",
+      "rawText": "XS24008003Y|语言学与文学理论1班(3、6-12周[教师:杨松,地点:沙教4-505])"
+    }
+  ],
+  "onlineCourses": [
+    {
+      "className": "文献管理与信息分析（线上）1班",
+      "courseName": "文献管理与信息分析（线上）",
+      "teacher": "罗昭锋",
+      "enrolledCount": 489,
+      "note": "未安排具体时间（线上自主学习）"
+    },
+    {
+      "className": "学术写作（线上）1班",
+      "courseName": "学术写作（线上）",
+      "teacher": "方凡",
+      "enrolledCount": 687,
+      "note": "未安排具体时间（线上自主学习）"
+    }
+  ],
+  "weeksCalendar": [
+    {
+      "weekNumber": 1,
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-06",
+      "days": [
+        {
+          "date": "2026-08-31",
+          "monthDay": "08-31",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-01",
+          "monthDay": "09-01",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-02",
+          "monthDay": "09-02",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-03",
+          "monthDay": "09-03",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-04",
+          "monthDay": "09-04",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-05",
+          "monthDay": "09-05",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-06",
+          "monthDay": "09-06",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 2,
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-13",
+      "days": [
+        {
+          "date": "2026-09-07",
+          "monthDay": "09-07",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 2,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-08",
+          "monthDay": "09-08",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-09",
+          "monthDay": "09-09",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 2,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-10",
+          "monthDay": "09-10",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-11",
+          "monthDay": "09-11",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-12",
+          "monthDay": "09-12",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-13",
+          "monthDay": "09-13",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 3,
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-20",
+      "days": [
+        {
+          "date": "2026-09-14",
+          "monthDay": "09-14",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "卢玮静",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-15",
+          "monthDay": "09-15",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-16",
+          "monthDay": "09-16",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "卢玮静",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-17",
+          "monthDay": "09-17",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-18",
+          "monthDay": "09-18",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-19",
+          "monthDay": "09-19",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-20",
+          "monthDay": "09-20",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 4,
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-27",
+      "days": [
+        {
+          "date": "2026-09-21",
+          "monthDay": "09-21",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "卢玮静",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-22",
+          "monthDay": "09-22",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-23",
+          "monthDay": "09-23",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "卢玮静",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-24",
+          "monthDay": "09-24",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-25",
+          "monthDay": "09-25",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-26",
+          "monthDay": "09-26",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-27",
+          "monthDay": "09-27",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 5,
+      "startDate": "2026-09-28",
+      "endDate": "2026-10-04",
+      "days": [
+        {
+          "date": "2026-09-28",
+          "monthDay": "09-28",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谢起慧",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-29",
+          "monthDay": "09-29",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-09-30",
+          "monthDay": "09-30",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "南锐",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-01",
+          "monthDay": "10-01",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-02",
+          "monthDay": "10-02",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-03",
+          "monthDay": "10-03",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-04",
+          "monthDay": "10-04",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 6,
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-11",
+      "days": [
+        {
+          "date": "2026-10-05",
+          "monthDay": "10-05",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-06",
+          "monthDay": "10-06",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-07",
+          "monthDay": "10-07",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-08",
+          "monthDay": "10-08",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-09",
+          "monthDay": "10-09",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "盖逸馨",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-10",
+          "monthDay": "10-10",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-11",
+          "monthDay": "10-11",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 7,
+      "startDate": "2026-10-12",
+      "endDate": "2026-10-18",
+      "days": [
+        {
+          "date": "2026-10-12",
+          "monthDay": "10-12",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谢起慧",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-13",
+          "monthDay": "10-13",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-14",
+          "monthDay": "10-14",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "南锐",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-15",
+          "monthDay": "10-15",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-16",
+          "monthDay": "10-16",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "杨磊",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-17",
+          "monthDay": "10-17",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-18",
+          "monthDay": "10-18",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 8,
+      "startDate": "2026-10-19",
+      "endDate": "2026-10-25",
+      "days": [
+        {
+          "date": "2026-10-19",
+          "monthDay": "10-19",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谢起慧",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-20",
+          "monthDay": "10-20",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-21",
+          "monthDay": "10-21",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "南锐",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-22",
+          "monthDay": "10-22",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-23",
+          "monthDay": "10-23",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "刘晓霞",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-24",
+          "monthDay": "10-24",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-25",
+          "monthDay": "10-25",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 9,
+      "startDate": "2026-10-26",
+      "endDate": "2026-11-01",
+      "days": [
+        {
+          "date": "2026-10-26",
+          "monthDay": "10-26",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谢起慧",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-27",
+          "monthDay": "10-27",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-10-28",
+          "monthDay": "10-28",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "南锐",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-29",
+          "monthDay": "10-29",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-30",
+          "monthDay": "10-30",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "李洪树",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-31",
+          "monthDay": "10-31",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-01",
+          "monthDay": "11-01",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 10,
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-08",
+      "days": [
+        {
+          "date": "2026-11-02",
+          "monthDay": "11-02",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谭爽",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-03",
+          "monthDay": "11-03",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-04",
+          "monthDay": "11-04",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_wed_1_2_eng",
+              "courseCode": "TS24008001G",
+              "courseName": "学术交流英语",
+              "className": "学术交流英语13班（地测学硕3+文法学硕）",
+              "teacher": "林莉",
+              "location": "沙教1-602",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 2,
+              "periods": [
+                1,
+                2
+              ],
+              "startTime": "08:00",
+              "endTime": "09:35",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                }
+              ],
+              "weeksText": "2-5, 7-10周",
+              "color": "#2563eb"
+            },
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谭爽",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-05",
+          "monthDay": "11-05",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-06",
+          "monthDay": "11-06",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "卢刚",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-07",
+          "monthDay": "11-07",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-08",
+          "monthDay": "11-08",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 11,
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-15",
+      "days": [
+        {
+          "date": "2026-11-09",
+          "monthDay": "11-09",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 2,
+          "courses": [
+            {
+              "id": "c_mon_5_6_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谭爽",
+              "location": "沙教4-405",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-10",
+          "monthDay": "11-10",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-11",
+          "monthDay": "11-11",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 2,
+          "courses": [
+            {
+              "id": "c_wed_3_4_soc",
+              "courseCode": "XS24008001Y",
+              "courseName": "社会研究方法",
+              "className": "社会研究方法1班",
+              "teacher": "谭爽",
+              "location": "沙教3-302",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 3,
+              "endPeriod": 4,
+              "periods": [
+                3,
+                4
+              ],
+              "startTime": "09:50",
+              "endTime": "11:25",
+              "periodTimes": [
+                {
+                  "period": 3,
+                  "start": "09:50",
+                  "end": "10:35"
+                },
+                {
+                  "period": 4,
+                  "start": "10:40",
+                  "end": "11:25"
+                }
+              ],
+              "weeksText": "3-4, 5, 7-9, 10-11周",
+              "color": "#7c3aed"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-12",
+          "monthDay": "11-12",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 3,
+          "courses": [
+            {
+              "id": "c_thu_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "朱峰",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3-4, 6-11周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "monthDay": "11-13",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "韩淑慧",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "monthDay": "11-14",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-15",
+          "monthDay": "11-15",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 12,
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-22",
+      "days": [
+        {
+          "date": "2026-11-16",
+          "monthDay": "11-16",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_5_6_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "12-16周",
+              "color": "#059669"
+            },
+            {
+              "id": "c_mon_7_8_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 8,
+              "periods": [
+                7,
+                8
+              ],
+              "startTime": "15:20",
+              "endTime": "16:55",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                }
+              ],
+              "weeksText": "12-15周",
+              "color": "#059669"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-17",
+          "monthDay": "11-17",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-18",
+          "monthDay": "11-18",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-19",
+          "monthDay": "11-19",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-20",
+          "monthDay": "11-20",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 7,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "曾庆桃",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            },
+            {
+              "id": "c_fri_7_9_ling",
+              "courseCode": "XS24008003Y",
+              "courseName": "语言学与文学理论",
+              "className": "语言学与文学理论1班",
+              "teacher": "杨松",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 9,
+              "periods": [
+                7,
+                8,
+                9
+              ],
+              "startTime": "15:20",
+              "endTime": "17:45",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                },
+                {
+                  "period": 9,
+                  "start": "17:00",
+                  "end": "17:45"
+                }
+              ],
+              "weeksText": "3, 6-12周",
+              "color": "#d97706"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "monthDay": "11-21",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-22",
+          "monthDay": "11-22",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 13,
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-29",
+      "days": [
+        {
+          "date": "2026-11-23",
+          "monthDay": "11-23",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_5_6_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "12-16周",
+              "color": "#059669"
+            },
+            {
+              "id": "c_mon_7_8_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 8,
+              "periods": [
+                7,
+                8
+              ],
+              "startTime": "15:20",
+              "endTime": "16:55",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                }
+              ],
+              "weeksText": "12-15周",
+              "color": "#059669"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "monthDay": "11-24",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-25",
+          "monthDay": "11-25",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-26",
+          "monthDay": "11-26",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-27",
+          "monthDay": "11-27",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "姜男",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            }
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "monthDay": "11-28",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-11-29",
+          "monthDay": "11-29",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 14,
+      "startDate": "2026-11-30",
+      "endDate": "2026-12-06",
+      "days": [
+        {
+          "date": "2026-11-30",
+          "monthDay": "11-30",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_5_6_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "12-16周",
+              "color": "#059669"
+            },
+            {
+              "id": "c_mon_7_8_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 8,
+              "periods": [
+                7,
+                8
+              ],
+              "startTime": "15:20",
+              "endTime": "16:55",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                }
+              ],
+              "weeksText": "12-15周",
+              "color": "#059669"
+            }
+          ]
+        },
+        {
+          "date": "2026-12-01",
+          "monthDay": "12-01",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-02",
+          "monthDay": "12-02",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-03",
+          "monthDay": "12-03",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-04",
+          "monthDay": "12-04",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_fri_1_4_marx",
+              "courseCode": "XS24009002Y",
+              "courseName": "马克思主义理论前沿研究",
+              "className": "马克思主义理论前沿研究1班",
+              "teacher": "崔世良",
+              "location": "沙教1-303",
+              "buildingGroup": "沙教一、二号楼",
+              "startPeriod": 1,
+              "endPeriod": 4,
+              "periods": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "startTime": "08:00",
+              "endTime": "11:45",
+              "periodTimes": [
+                {
+                  "period": 1,
+                  "start": "08:00",
+                  "end": "08:45"
+                },
+                {
+                  "period": 2,
+                  "start": "08:50",
+                  "end": "09:35"
+                },
+                {
+                  "period": 3,
+                  "start": "10:10",
+                  "end": "10:55"
+                },
+                {
+                  "period": 4,
+                  "start": "11:00",
+                  "end": "11:45"
+                }
+              ],
+              "weeksText": "6-14周",
+              "color": "#e11d48"
+            }
+          ]
+        },
+        {
+          "date": "2026-12-05",
+          "monthDay": "12-05",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-06",
+          "monthDay": "12-06",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 15,
+      "startDate": "2026-12-07",
+      "endDate": "2026-12-13",
+      "days": [
+        {
+          "date": "2026-12-07",
+          "monthDay": "12-07",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 4,
+          "courses": [
+            {
+              "id": "c_mon_5_6_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "12-16周",
+              "color": "#059669"
+            },
+            {
+              "id": "c_mon_7_8_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 7,
+              "endPeriod": 8,
+              "periods": [
+                7,
+                8
+              ],
+              "startTime": "15:20",
+              "endTime": "16:55",
+              "periodTimes": [
+                {
+                  "period": 7,
+                  "start": "15:20",
+                  "end": "16:05"
+                },
+                {
+                  "period": 8,
+                  "start": "16:10",
+                  "end": "16:55"
+                }
+              ],
+              "weeksText": "12-15周",
+              "color": "#059669"
+            }
+          ]
+        },
+        {
+          "date": "2026-12-08",
+          "monthDay": "12-08",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-09",
+          "monthDay": "12-09",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-10",
+          "monthDay": "12-10",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-11",
+          "monthDay": "12-11",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-12",
+          "monthDay": "12-12",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-13",
+          "monthDay": "12-13",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 16,
+      "startDate": "2026-12-14",
+      "endDate": "2026-12-20",
+      "days": [
+        {
+          "date": "2026-12-14",
+          "monthDay": "12-14",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": true,
+          "totalPeriodsWithClass": 2,
+          "courses": [
+            {
+              "id": "c_mon_5_6_nat",
+              "courseCode": "TS24009001G",
+              "courseName": "自然辩证法概论",
+              "className": "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+              "teacher": "刘晓君",
+              "location": "沙教4-505",
+              "buildingGroup": "沙教三、四号楼",
+              "startPeriod": 5,
+              "endPeriod": 6,
+              "periods": [
+                5,
+                6
+              ],
+              "startTime": "13:30",
+              "endTime": "15:05",
+              "periodTimes": [
+                {
+                  "period": 5,
+                  "start": "13:30",
+                  "end": "14:15"
+                },
+                {
+                  "period": 6,
+                  "start": "14:20",
+                  "end": "15:05"
+                }
+              ],
+              "weeksText": "12-16周",
+              "color": "#059669"
+            }
+          ]
+        },
+        {
+          "date": "2026-12-15",
+          "monthDay": "12-15",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-16",
+          "monthDay": "12-16",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-17",
+          "monthDay": "12-17",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-18",
+          "monthDay": "12-18",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-19",
+          "monthDay": "12-19",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-20",
+          "monthDay": "12-20",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 17,
+      "startDate": "2026-12-21",
+      "endDate": "2026-12-27",
+      "days": [
+        {
+          "date": "2026-12-21",
+          "monthDay": "12-21",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-22",
+          "monthDay": "12-22",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-23",
+          "monthDay": "12-23",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-24",
+          "monthDay": "12-24",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-25",
+          "monthDay": "12-25",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-26",
+          "monthDay": "12-26",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-27",
+          "monthDay": "12-27",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 18,
+      "startDate": "2026-12-28",
+      "endDate": "2027-01-03",
+      "days": [
+        {
+          "date": "2026-12-28",
+          "monthDay": "12-28",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-29",
+          "monthDay": "12-29",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-30",
+          "monthDay": "12-30",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2026-12-31",
+          "monthDay": "12-31",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-01",
+          "monthDay": "01-01",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-02",
+          "monthDay": "01-02",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-03",
+          "monthDay": "01-03",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 19,
+      "startDate": "2027-01-04",
+      "endDate": "2027-01-10",
+      "days": [
+        {
+          "date": "2027-01-04",
+          "monthDay": "01-04",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-05",
+          "monthDay": "01-05",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-06",
+          "monthDay": "01-06",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-07",
+          "monthDay": "01-07",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-08",
+          "monthDay": "01-08",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-09",
+          "monthDay": "01-09",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-10",
+          "monthDay": "01-10",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    },
+    {
+      "weekNumber": 20,
+      "startDate": "2027-01-11",
+      "endDate": "2027-01-17",
+      "days": [
+        {
+          "date": "2027-01-11",
+          "monthDay": "01-11",
+          "dayOfWeek": 1,
+          "weekdayName": "星期一",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-12",
+          "monthDay": "01-12",
+          "dayOfWeek": 2,
+          "weekdayName": "星期二",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-13",
+          "monthDay": "01-13",
+          "dayOfWeek": 3,
+          "weekdayName": "星期三",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-14",
+          "monthDay": "01-14",
+          "dayOfWeek": 4,
+          "weekdayName": "星期四",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-15",
+          "monthDay": "01-15",
+          "dayOfWeek": 5,
+          "weekdayName": "星期五",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-16",
+          "monthDay": "01-16",
+          "dayOfWeek": 6,
+          "weekdayName": "星期六",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        },
+        {
+          "date": "2027-01-17",
+          "monthDay": "01-17",
+          "dayOfWeek": 7,
+          "weekdayName": "星期日",
+          "hasClasses": false,
+          "totalPeriodsWithClass": 0,
+          "courses": []
+        }
+      ]
+    }
+  ]
+}

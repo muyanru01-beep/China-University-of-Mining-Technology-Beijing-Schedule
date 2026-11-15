@@ -1,0 +1,9 @@
+{
+  "name": "矿大(北京)研究生逐周逐日课表",
+  "short_name": "矿大课表",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary"
+}

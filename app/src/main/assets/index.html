@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中国矿业大学（北京）研究生逐周逐日智能课表</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Navigation & Status Header -->
+  <header class="bg-gradient-to-r from-slate-900 via-blue-950 to-indigo-950 text-white shadow-lg sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        <!-- Brand & Student Metadata -->
+        <div class="flex items-start sm:items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 text-blue-300 font-bold text-lg shadow-inner">
+            矿大
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 id="headerTitle" class="text-base sm:text-lg font-bold tracking-tight text-white">
+                中国矿业大学（北京）· 逐周逐日智能课表
+              </h1>
+              <span id="headerSemesterBadge" class="px-2 py-0.5 text-xs font-medium rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30">
+                2026-20271 学期
+              </span>
+              <span id="headerStudentBadge" class="px-2 py-0.5 text-xs font-medium rounded-full bg-emerald-500/25 text-emerald-200 border border-emerald-400/30">
+                学生：同学
+              </span>
+            </div>
+            <p class="text-xs text-slate-300 mt-0.5">
+              校历基准：<span id="headerTermRange">2026-08-31（第1周周一）至 2027-01-17（共20周）</span>
+              · <a href="https://jwc.cumtb.edu.cn/info/1068/6105.htm" target="_blank" rel="noopener noreferrer" class="underline text-blue-300 hover:text-white">教务处校历通知</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- JSON Controls & Quick Today Jump -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btnJumpToday" type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 hover:bg-amber-400 text-slate-950 transition shadow-sm flex items-center gap-1.5">
+            <span>定位今日 (2026-11-12)</span>
+          </button>
+          <button id="btnOpenJsonModal" type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/10 hover:bg-white/20 text-white border border-white/15 transition flex items-center gap-1.5">
+            <span>JSON 课表数据 (导入/导出)</span>
+          </button>
+          <button id="btnDownloadJsonDirect" type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white transition shadow-sm flex items-center gap-1.5">
+            <span>下载 JSON</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Current Status Bar (Selected Date, Week Number, Today's Summary) -->
+      <div class="mt-3 pt-2.5 border-t border-white/10 grid grid-cols-1 md:grid-cols-12 gap-2.5 items-center">
+        <!-- Date & Week Indicator -->
+        <div class="md:col-span-5 flex flex-wrap items-center gap-2 bg-white/5 rounded-xl px-3 py-2 border border-white/10">
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-300">当前查看日期:</span>
+            <input id="datePickerInput" type="date" value="2026-11-12" min="2026-08-31" max="2027-01-17" class="bg-slate-800 text-white text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-600 focus:outline-none focus:border-blue-400" />
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button id="btnPrevDay" type="button" class="px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-xs" title="前一天">◀ 前一日</button>
+            <button id="btnNextDay" type="button" class="px-2 py-1 rounded bg-white/10 hover:bg-white/20 text-xs" title="后一天">后一日 ▶</button>
+          </div>
+        </div>
+
+        <!-- Resolved Week & Day Status -->
+        <div class="md:col-span-7 flex flex-wrap items-center justify-between gap-2 bg-white/5 rounded-xl px-3 py-2 border border-white/10">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="statusWeekBadge" class="px-2.5 py-0.5 rounded-md bg-blue-500 text-white font-bold text-xs tracking-wide">
+              第 11 周
+            </span>
+            <span id="statusWeekdayText" class="text-sm font-bold text-white">
+              2026年11月12日 星期四
+            </span>
+            <span id="statusIsTodayTag" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              ★ 当前日期 (今日)
+            </span>
+          </div>
+          <div id="statusDayCourseSummary" class="text-xs font-medium text-emerald-300">
+            今日有 1 门课（共 3 节：第7-9节）
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-4 sm:px-6 space-y-4">
+
+    <!-- Week Selector Strip (1 to 20 Weeks) -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-3 sm:p-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+        <div class="flex items-center gap-2">
+          <h2 class="text-sm font-bold text-slate-800">教学周次切换（第 1 ~ 20 周）</h2>
+          <span id="weekRangeSubtitle" class="text-xs text-slate-500 font-medium">
+            本周日期：2026-11-09（周一）至 2026-11-15（周日）
+          </span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnPrevWeek" type="button" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            ← 上一周
+          </button>
+          <select id="weekSelectDropdown" aria-label="选择教学周" class="text-xs font-semibold bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-slate-800 focus:outline-none focus:border-blue-500">
+          </select>
+          <button id="btnNextWeek" type="button" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            下一周 →
+          </button>
+        </div>
+      </div>
+
+      <!-- 20-Week Pills -->
+      <div id="weekPillsContainer" class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1.5">
+      </div>
+    </section>
+
+    <!-- View Mode Switcher & Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+
+      <!-- Left Column (7 cols on LG): Weekly Schedule Table OR 20-Week Semester Calendar -->
+      <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <!-- Left Panel Header & Tabs -->
+        <div class="px-4 py-3 border-b border-slate-200 bg-slate-50/60 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 bg-slate-200/80 p-1 rounded-xl">
+            <button id="tabLeftWeekGrid" type="button" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-blue-700 shadow-sm transition">
+              逐周课表网格
+            </button>
+            <button id="tabLeftSemesterCal" type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition">
+              20周逐日历对照表
+            </button>
+            <button id="tabLeftCourseList" type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition">
+              全学期课程汇总
+            </button>
+          </div>
+
+          <label id="GhostCourseToggleWrap" class="flex items-center gap-1.5 text-xs text-slate-600 cursor-pointer select-none">
+            <input id="chkShowInactiveWeeks" type="checkbox" class="rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+            <span>显示非本周课程(对照)</span>
+          </label>
+        </div>
+
+        <!-- Left View 1: Weekly Grid (Mon-Sun x Periods 1-12) -->
+        <div id="panelLeftWeekGrid" class="p-3 sm:p-4">
+          <div class="mb-2.5 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+            <span>提示：点击表头星期或单元格可切换右侧【当日逐节 / 逐小时】视图；点击课程块查看详情。</span>
+            <span id="weekStatsBadge" class="font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+              第11周：共 5 门次 / 14 节课
+            </span>
+          </div>
+
+          <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-xl">
+            <table class="w-full border-collapse text-left min-w-[620px]">
+              <thead>
+                <tr id="weekGridHeaderRow" class="bg-slate-100 border-b border-slate-200 text-center text-xs font-semibold text-slate-700">
+                </tr>
+              </thead>
+              <tbody id="weekGridBody" class="divide-y divide-slate-200 text-xs">
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Online Courses & Official Time Rules Footer -->
+          <div class="mt-3 pt-3 border-t border-slate-200 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-bold text-slate-700">未安排具体时间的课表（线上课程）：</span>
+              <div id="onlineCoursesInline" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div class="bg-blue-50/70 border border-blue-200/80 rounded-xl p-2.5 text-[11px] text-slate-600 leading-relaxed">
+              <div class="font-semibold text-blue-900 mb-0.5">⏱ 沙河校区第 3、4 节错峰上课时间规则（已自动匹配各课程教学楼）：</div>
+              <div>• <strong>第1-2节</strong>：08:00-08:45、08:50-09:35（全校区统一）</div>
+              <div>• <strong>第3-4节</strong>：<strong>沙教一、二号楼</strong>为 <span class="text-rose-700 font-semibold">10:10-10:55、11:00-11:45</span>（如周五《马克思主义理论前沿研究》沙教1-303）；<strong>沙教三、四号楼</strong>为 <span class="text-purple-700 font-semibold">09:50-10:35、10:40-11:25</span>（如周三《社会研究方法》沙教3-302）；学院路校区为 09:55-10:40、10:45-11:30。</div>
+              <div>• <strong>下午第5-9节</strong>：第5节 13:30-14:15 | 第6节 14:20-15:05 | 第7节 15:20-16:05 | 第8节 16:10-16:55 | 第9节 17:00-17:45</div>
+              <div>• <strong>晚上第10-12节</strong>：第10节 19:00-19:45 | 第11节 19:50-20:35 | 第12节 20:40-21:25</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left View 2: 20-Week Semester Calendar Matrix -->
+        <div id="panelLeftSemesterCal" class="hidden p-3 sm:p-4">
+          <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800">2026-2027-1 学期逐周与日期完整对应表（第 1 ~ 20 周）</h3>
+              <p class="text-xs text-slate-500">点击任意日期格，右侧立即展示该日【逐节次（1-12节）】与【逐小时（08:00-22:00）】课程详情</p>
+            </div>
+          </div>
+          <div class="overflow-x-auto custom-scrollbar max-h-[640px] border border-slate-200 rounded-xl">
+            <table class="w-full border-collapse text-center text-xs min-w-[580px]">
+              <thead class="bg-slate-100 sticky top-0 z-10 border-b border-slate-200 text-slate-700 font-semibold">
+                <tr>
+                  <th class="py-2 px-2 border-r border-slate-200 w-20">周次</th>
+                  <th class="py-2 px-2 border-r border-slate-200">周一</th>
+                  <th class="py-2 px-2 border-r border-slate-200">周二</th>
+                  <th class="py-2 px-2 border-r border-slate-200">周三</th>
+                  <th class="py-2 px-2 border-r border-slate-200">周四</th>
+                  <th class="py-2 px-2 border-r border-slate-200">周五</th>
+                  <th class="py-2 px-2 border-r border-slate-200 text-slate-500">周六</th>
+                  <th class="py-2 px-2 text-slate-500">周日</th>
+                </tr>
+              </thead>
+              <tbody id="semesterCalMatrixBody" class="divide-y divide-slate-200">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Left View 3: Full Course & Teacher Roster -->
+        <div id="panelLeftCourseList" class="hidden p-3 sm:p-4 space-y-3">
+          <div>
+            <h3 class="text-sm font-bold text-slate-800">全学期排课课程与分段任课教师明细</h3>
+            <p class="text-xs text-slate-500">基于教务系统课表图片精准解析，含各周次轮讲/分段教师映射</p>
+          </div>
+          <div id="courseSummaryListContainer" class="space-y-2.5"></div>
+        </div>
+      </div>
+
+      <!-- Right Column (5 cols on LG): Selected Day Detail (Period-by-Period 1-12 & Hour-by-Hour 08:00-22:00) -->
+      <div class="lg:col-span-5 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+        <!-- Right Panel Header -->
+        <div class="px-4 py-3 border-b border-slate-200 bg-slate-50/60">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-2">
+                <span id="rightDayWeekTag" class="px-2 py-0.5 rounded bg-blue-600 text-white text-xs font-bold">第11周 · 星期四</span>
+                <h2 id="rightDayDateTitle" class="text-sm sm:text-base font-bold text-slate-900">2026-11-12 每日课程详情</h2>
+              </div>
+              <p id="rightDayOverviewText" class="text-xs text-slate-500 mt-0.5">
+                当日共有 1 门课程（覆盖第 7、8、9 节，15:20 - 17:45）
+              </p>
+            </div>
+          </div>
+
+          <!-- Sub-mode toggle: Period-by-Period (逐第几节课) vs Hour-by-Hour (逐小时) -->
+          <div class="mt-3 grid grid-cols-2 gap-1.5 bg-slate-200/80 p-1 rounded-xl">
+            <button id="btnModeByPeriod" type="button" class="py-1.5 px-3 rounded-lg text-xs font-bold bg-white text-blue-700 shadow-sm transition flex items-center justify-center gap-1.5">
+              <span>📋 逐第几节课显示 (1~12节)</span>
+            </button>
+            <button id="btnModeByHour" type="button" class="py-1.5 px-3 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5">
+              <span>🕒 逐小时显示 (08:00~22:00)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Day Of Week Quick Strip for Current Week -->
+        <div id="rightWeekDayStrip" class="grid grid-cols-7 gap-1 px-3 py-2 bg-slate-50 border-b border-slate-200 text-center">
+        </div>
+
+        <!-- Right Content Body: Period-by-Period (1-12) -->
+        <div id="panelRightByPeriod" class="p-3 sm:p-4 space-y-2 max-h-[680px] overflow-y-auto custom-scrollbar">
+        </div>
+
+        <!-- Right Content Body: Hour-by-Hour (08:00 - 22:00) -->
+        <div id="panelRightByHour" class="hidden p-3 sm:p-4 space-y-2 max-h-[680px] overflow-y-auto custom-scrollbar">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Course Detail Modal -->
+  <div id="courseDetailModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div id="modalCourseHeader" class="px-5 py-4 text-white flex items-center justify-between">
+        <div>
+          <span id="modalCourseCode" class="text-xs font-mono uppercase bg-white/20 px-2 py-0.5 rounded">TS24008001G</span>
+          <h3 id="modalCourseTitle" class="text-lg font-bold mt-1">学术交流英语</h3>
+        </div>
+        <button id="btnCloseCourseModal" type="button" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white font-bold">✕</button>
+      </div>
+      <div id="modalCourseBody" class="p-5 space-y-3 text-xs sm:text-sm text-slate-700 max-h-[75vh] overflow-y-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- JSON Import / Export / Inspector Modal -->
+  <div id="jsonModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="px-5 py-4 bg-slate-900 text-white flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-bold">课表 JSON 数据管理（读取 / 编辑 / 导出）</h3>
+          <p class="text-xs text-slate-300 mt-0.5">支持导入外部 .json 课表文件、校准第一周周一日期或直接修改 JSON 数据实时生效</p>
+        </div>
+        <button id="btnCloseJsonModal" type="button" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white font-bold">✕</button>
+      </div>
+
+      <div class="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1 text-xs">
+        <!-- Action Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+          <div class="flex flex-wrap items-center gap-2">
+            <label class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold cursor-pointer transition shadow-xs">
+              <span>📂 选择本地 JSON 文件读入</span>
+              <input id="inputJsonFileUpload" type="file" accept=".json,application/json" class="hidden" />
+            </label>
+            <button id="btnModalDownloadJson" type="button" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition shadow-xs">
+              💾 导出/下载完整 JSON (含20周日历)
+            </button>
+            <button id="btnCopyJsonText" type="button" class="px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium transition">
+              📋 复制 JSON
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label for="inputStartMonday" class="font-medium text-slate-700">第1周周一日期:</label>
+            <input id="inputStartMonday" type="date" value="2026-08-31" class="px-2 py-1 rounded border border-slate-300 text-slate-800 font-semibold" />
+            <button id="btnResetDefaultData" type="button" class="px-2.5 py-1 rounded bg-slate-200 hover:bg-slate-300 text-slate-700">
+              恢复默认
+            </button>
+          </div>
+        </div>
+
+        <div id="jsonStatusToast" class="hidden px-3 py-2 rounded-lg text-xs font-medium"></div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-semibold text-slate-700">当前课表 JSON 结构内容（可直接编辑并点击下方“应用并刷新课表”）：</span>
+            <span class="text-slate-400">包含 metadata、periodRules、courses、onlineCourses 及自动计算的20周日历</span>
+          </div>
+          <textarea id="textareaJsonEditor" rows="16" class="w-full font-mono text-[11px] bg-slate-950 text-emerald-300 p-3 rounded-xl border border-slate-700 focus:outline-none focus:border-blue-500 custom-scrollbar"></textarea>
+        </div>
+      </div>
+
+      <div class="px-5 py-3 bg-slate-100 border-t border-slate-200 flex items-center justify-end gap-2">
+        <button id="btnApplyJsonChanges" type="button" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-sm transition">
+          ✓ 应用 JSON 数据并刷新课表
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. 内置默认 JSON 数据（根据《中国矿业大学（北京）研究生信息管理系统》截图生成）
+    // =========================================================================
+    const DEFAULT_SCHEDULE_DATA = {
+      metadata: {
+        university: "中国矿业大学（北京）",
+        system: "研究生信息管理系统",
+        studentName: "同学",
+        semesterCode: "2026-20271",
+        semesterName: "2026-2027学年第一学期",
+        semesterStartMonday: "2026-08-31",
+        semesterEndSunday: "2027-01-17",
+        totalWeeks: 20,
+        referenceCurrentDate: "2026-11-12",
+        calendarSourceTitle: "关于做好2026-2027学年第一学期本科生排课工作的通知",
+        calendarSourceUrl: "https://jwc.cumtb.edu.cn/info/1068/6105.htm"
+      },
+      periodRules: [
+        { period: 1, section: "上午", defaultStart: "08:00", defaultEnd: "08:45", variants: { "default": { start: "08:00", end: "08:45" } } },
+        { period: 2, section: "上午", defaultStart: "08:50", defaultEnd: "09:35", variants: { "default": { start: "08:50", end: "09:35" } } },
+        {
+          period: 3,
+          section: "上午",
+          defaultStart: "09:50",
+          defaultEnd: "10:35",
+          note: "学院路校区 09:55-10:40；沙教一、二号楼 10:10-10:55；沙教三、四号楼、沙河体育场 09:50-10:35",
+          variants: {
+            "学院路校区": { start: "09:55", end: "10:40" },
+            "沙教一、二号楼": { start: "10:10", end: "10:55" },
+            "沙教三、四号楼": { start: "09:50", end: "10:35" },
+            "default": { start: "09:50", end: "10:35" }
+          }
+        },
+        {
+          period: 4,
+          section: "上午",
+          defaultStart: "10:40",
+          defaultEnd: "11:25",
+          note: "学院路校区 10:45-11:30；沙教一、二号楼 11:00-11:45；沙教三、四号楼、沙河体育场 10:40-11:25",
+          variants: {
+            "学院路校区": { start: "10:45", end: "11:30" },
+            "沙教一、二号楼": { start: "11:00", end: "11:45" },
+            "沙教三、四号楼": { start: "10:40", end: "11:25" },
+            "default": { start: "10:40", end: "11:25" }
+          }
+        },
+        { period: 5, section: "下午", defaultStart: "13:30", defaultEnd: "14:15", variants: { "default": { start: "13:30", end: "14:15" } } },
+        { period: 6, section: "下午", defaultStart: "14:20", defaultEnd: "15:05", variants: { "default": { start: "14:20", end: "15:05" } } },
+        { period: 7, section: "下午", defaultStart: "15:20", defaultEnd: "16:05", variants: { "default": { start: "15:20", end: "16:05" } } },
+        { period: 8, section: "下午", defaultStart: "16:10", defaultEnd: "16:55", variants: { "default": { start: "16:10", end: "16:55" } } },
+        { period: 9, section: "下午", defaultStart: "17:00", defaultEnd: "17:45", variants: { "default": { start: "17:00", end: "17:45" } } },
+        { period: 10, section: "晚上", defaultStart: "19:00", defaultEnd: "19:45", variants: { "default": { start: "19:00", end: "19:45" } } },
+        { period: 11, section: "晚上", defaultStart: "19:50", defaultEnd: "20:35", variants: { "default": { start: "19:50", end: "20:35" } } },
+        { period: 12, section: "晚上", defaultStart: "20:40", defaultEnd: "21:25", variants: { "default": { start: "20:40", end: "21:25" } } }
+      ],
+      courses: [
+        {
+          id: "c_mon_1_2_eng",
+          courseCode: "TS24008001G",
+          courseName: "学术交流英语",
+          className: "学术交流英语13班（地测学硕3+文法学硕）",
+          dayOfWeek: 1,
+          weekdayName: "星期一",
+          startPeriod: 1,
+          endPeriod: 2,
+          periods: [1, 2],
+          buildingGroup: "沙教一、二号楼",
+          location: "沙教1-602",
+          startTime: "08:00",
+          endTime: "09:35",
+          weeksText: "2-5, 7-10周",
+          weeks: [2, 3, 4, 5, 7, 8, 9, 10],
+          defaultTeacher: "林莉",
+          teacherByWeek: { "2": "林莉", "3": "林莉", "4": "林莉", "5": "林莉", "7": "林莉", "8": "林莉", "9": "林莉", "10": "林莉" },
+          color: "#2563eb",
+          rawText: "TS24008001G|学术交流英语13班（地测学硕3+文法学硕）(2-5、7-10周[教师:林莉,地点:沙教1-602])"
+        },
+        {
+          id: "c_mon_5_6_soc",
+          courseCode: "XS24008001Y",
+          courseName: "社会研究方法",
+          className: "社会研究方法1班",
+          dayOfWeek: 1,
+          weekdayName: "星期一",
+          startPeriod: 5,
+          endPeriod: 6,
+          periods: [5, 6],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教4-405",
+          startTime: "13:30",
+          endTime: "15:05",
+          weeksText: "3-4, 5, 7-9, 10-11周",
+          weeks: [3, 4, 5, 7, 8, 9, 10, 11],
+          defaultTeacher: "卢玮静 / 谢起慧 / 谭爽",
+          teacherByWeek: {
+            "3": "卢玮静", "4": "卢玮静",
+            "5": "谢起慧", "7": "谢起慧", "8": "谢起慧", "9": "谢起慧",
+            "10": "谭爽", "11": "谭爽"
+          },
+          color: "#7c3aed",
+          rawText: "XS24008001Y|社会研究方法1班(3-4周[教师:卢玮静]、5、7-9周[教师:谢起慧]、10-11周[教师:谭爽][地点:沙教4-405])"
+        },
+        {
+          id: "c_mon_5_6_nat",
+          courseCode: "TS24009001G",
+          courseName: "自然辩证法概论",
+          className: "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+          dayOfWeek: 1,
+          weekdayName: "星期一",
+          startPeriod: 5,
+          endPeriod: 6,
+          periods: [5, 6],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教4-505",
+          startTime: "13:30",
+          endTime: "15:05",
+          weeksText: "12-16周",
+          weeks: [12, 13, 14, 15, 16],
+          defaultTeacher: "刘晓君",
+          teacherByWeek: { "12": "刘晓君", "13": "刘晓君", "14": "刘晓君", "15": "刘晓君", "16": "刘晓君" },
+          color: "#059669",
+          rawText: "TS24009001G|自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）(12-16周[教师:刘晓君,地点:沙教4-505])"
+        },
+        {
+          id: "c_mon_7_8_nat",
+          courseCode: "TS24009001G",
+          courseName: "自然辩证法概论",
+          className: "自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）",
+          dayOfWeek: 1,
+          weekdayName: "星期一",
+          startPeriod: 7,
+          endPeriod: 8,
+          periods: [7, 8],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教4-505",
+          startTime: "15:20",
+          endTime: "16:55",
+          weeksText: "12-15周",
+          weeks: [12, 13, 14, 15],
+          defaultTeacher: "刘晓君",
+          teacherByWeek: { "12": "刘晓君", "13": "刘晓君", "14": "刘晓君", "15": "刘晓君" },
+          color: "#059669",
+          rawText: "TS24009001G|自然辩证法概论14班（理学院学硕+文法学硕+马院学硕）(12-15周[教师:刘晓君,地点:沙教4-505])"
+        },
+        {
+          id: "c_wed_1_2_eng",
+          courseCode: "TS24008001G",
+          courseName: "学术交流英语",
+          className: "学术交流英语13班（地测学硕3+文法学硕）",
+          dayOfWeek: 3,
+          weekdayName: "星期三",
+          startPeriod: 1,
+          endPeriod: 2,
+          periods: [1, 2],
+          buildingGroup: "沙教一、二号楼",
+          location: "沙教1-602",
+          startTime: "08:00",
+          endTime: "09:35",
+          weeksText: "2-5, 7-10周",
+          weeks: [2, 3, 4, 5, 7, 8, 9, 10],
+          defaultTeacher: "林莉",
+          teacherByWeek: { "2": "林莉", "3": "林莉", "4": "林莉", "5": "林莉", "7": "林莉", "8": "林莉", "9": "林莉", "10": "林莉" },
+          color: "#2563eb",
+          rawText: "TS24008001G|学术交流英语13班（地测学硕3+文法学硕）(2-5、7-10周[教师:林莉,地点:沙教1-602])"
+        },
+        {
+          id: "c_wed_3_4_soc",
+          courseCode: "XS24008001Y",
+          courseName: "社会研究方法",
+          className: "社会研究方法1班",
+          dayOfWeek: 3,
+          weekdayName: "星期三",
+          startPeriod: 3,
+          endPeriod: 4,
+          periods: [3, 4],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教3-302",
+          startTime: "09:50",
+          endTime: "11:25",
+          weeksText: "3-4, 5, 7-9, 10-11周",
+          weeks: [3, 4, 5, 7, 8, 9, 10, 11],
+          defaultTeacher: "卢玮静 / 南锐 / 谭爽",
+          teacherByWeek: {
+            "3": "卢玮静", "4": "卢玮静",
+            "5": "南锐", "7": "南锐", "8": "南锐", "9": "南锐",
+            "10": "谭爽", "11": "谭爽"
+          },
+          color: "#7c3aed",
+          rawText: "XS24008001Y|社会研究方法1班(3-4周[教师:卢玮静]、5、7-9周[教师:南锐]、10-11周[教师:谭爽][地点:沙教3-302])"
+        },
+        {
+          id: "c_thu_7_9_ling",
+          courseCode: "XS24008003Y",
+          courseName: "语言学与文学理论",
+          className: "语言学与文学理论1班",
+          dayOfWeek: 4,
+          weekdayName: "星期四",
+          startPeriod: 7,
+          endPeriod: 9,
+          periods: [7, 8, 9],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教4-505",
+          startTime: "15:20",
+          endTime: "17:45",
+          weeksText: "3-4, 6-11周",
+          weeks: [3, 4, 6, 7, 8, 9, 10, 11],
+          defaultTeacher: "朱峰",
+          teacherByWeek: { "3": "朱峰", "4": "朱峰", "6": "朱峰", "7": "朱峰", "8": "朱峰", "9": "朱峰", "10": "朱峰", "11": "朱峰" },
+          color: "#d97706",
+          rawText: "XS24008003Y|语言学与文学理论1班(3-4、6-11周[教师:朱峰,地点:沙教4-505])"
+        },
+        {
+          id: "c_fri_1_4_marx",
+          courseCode: "XS24009002Y",
+          courseName: "马克思主义理论前沿研究",
+          className: "马克思主义理论前沿研究1班",
+          dayOfWeek: 5,
+          weekdayName: "星期五",
+          startPeriod: 1,
+          endPeriod: 4,
+          periods: [1, 2, 3, 4],
+          buildingGroup: "沙教一、二号楼",
+          location: "沙教1-303",
+          startTime: "08:00",
+          endTime: "11:45",
+          weeksText: "6-14周",
+          weeks: [6, 7, 8, 9, 10, 11, 12, 13, 14],
+          defaultTeacher: "盖逸馨等9位教师轮讲",
+          teacherByWeek: {
+            "6": "盖逸馨",
+            "7": "杨磊",
+            "8": "刘晓霞",
+            "9": "李洪树",
+            "10": "卢刚",
+            "11": "韩淑慧",
+            "12": "曾庆桃",
+            "13": "姜男",
+            "14": "崔世良"
+          },
+          color: "#e11d48",
+          rawText: "XS24009002Y|马克思主义理论前沿研究1班(6周[教师:盖逸馨]、7周[教师:杨磊]、8周[教师:刘晓霞]、9周[教师:李洪树]、10周[教师:卢刚]、11周[教师:韩淑慧]、12周[教师:曾庆桃]、13周[教师:姜男]、14周[教师:崔世良][地点:沙教1-303])"
+        },
+        {
+          id: "c_fri_7_9_ling",
+          courseCode: "XS24008003Y",
+          courseName: "语言学与文学理论",
+          className: "语言学与文学理论1班",
+          dayOfWeek: 5,
+          weekdayName: "星期五",
+          startPeriod: 7,
+          endPeriod: 9,
+          periods: [7, 8, 9],
+          buildingGroup: "沙教三、四号楼",
+          location: "沙教4-505",
+          startTime: "15:20",
+          endTime: "17:45",
+          weeksText: "3, 6-12周",
+          weeks: [3, 6, 7, 8, 9, 10, 11, 12],
+          defaultTeacher: "杨松",
+          teacherByWeek: { "3": "杨松", "6": "杨松", "7": "杨松", "8": "杨松", "9": "杨松", "10": "杨松", "11": "杨松", "12": "杨松" },
+          color: "#d97706",
+          rawText: "XS24008003Y|语言学与文学理论1班(3、6-12周[教师:杨松,地点:沙教4-505])"
+        }
+      ],
+      onlineCourses: [
+        {
+          className: "文献管理与信息分析（线上）1班",
+          courseName: "文献管理与信息分析（线上）",
+          teacher: "罗昭锋",
+          enrolledCount: 489,
+          note: "未安排具体时间（线上自主学习）"
+        },
+        {
+          className: "学术写作（线上）1班",
+          courseName: "学术写作（线上）",
+          teacher: "方凡",
+          enrolledCount: 687,
+          note: "未安排具体时间（线上自主学习）"
+        }
+      ]
+    };
+
+    // =========================================================================
+    // 2. 状态管理与日历动态构建逻辑
+    // =========================================================================
+    const WEEKDAY_NAMES = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
+    const SHORT_WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+    const today = new Date();
+    const REFERENCE_TODAY = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+
+    let appState = {
+      scheduleData: JSON.parse(JSON.stringify(DEFAULT_SCHEDULE_DATA)),
+      selectedDate: REFERENCE_TODAY,
+      selectedWeek: 11,
+      selectedDayOfWeek: 4, // 1=Mon ... 7=Sun
+      leftTab: "weekGrid",  // "weekGrid" | "semesterCal" | "courseList"
+      rightMode: "byPeriod", // "byPeriod" | "byHour"
+      showInactiveWeeks: false
+    };
+
+    function parseDateISO(isoStr) {
+      const parts = isoStr.split("-").map(Number);
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+
+    function formatDateISO(dateObj) {
+      const y = dateObj.getFullYear();
+      const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+      const d = String(dateObj.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function addDays(isoStr, days) {
+      const dt = parseDateISO(isoStr);
+      dt.setDate(dt.getDate() + days);
+      return formatDateISO(dt);
+    }
+
+    function diffDays(isoStart, isoTarget) {
+      const d1 = parseDateISO(isoStart);
+      const d2 = parseDateISO(isoTarget);
+      const msPerDay = 24 * 60 * 60 * 1000;
+      return Math.round((d2.getTime() - d1.getTime()) / msPerDay);
+    }
+
+    function timeToMinutes(tStr) {
+      const [hh, mm] = tStr.split(":").map(Number);
+      return hh * 60 + mm;
+    }
+
+    function getPeriodTimeForBuilding(periodNum, buildingGroup) {
+      const rules = appState.scheduleData.periodRules || DEFAULT_SCHEDULE_DATA.periodRules;
+      const rule = rules.find(r => r.period === periodNum) || rules[periodNum - 1];
+      if (!rule) return { start: "08:00", end: "08:45" };
+      if (rule.variants && buildingGroup && rule.variants[buildingGroup]) {
+        return rule.variants[buildingGroup];
+      }
+      if (rule.variants && rule.variants["default"]) {
+        return rule.variants["default"];
+      }
+      return { start: rule.defaultStart, end: rule.defaultEnd };
+    }
+
+    function rebuildWeeksCalendar() {
+      const meta = appState.scheduleData.metadata;
+      const startMonday = meta.semesterStartMonday || "2026-08-31";
+      const totalWeeks = Number(meta.totalWeeks) || 20;
+      const courses = appState.scheduleData.courses || [];
+
+      const weeksCalendar = [];
+      for (let w = 1; w <= totalWeeks; w++) {
+        const wStart = addDays(startMonday, (w - 1) * 7);
+        const wEnd = addDays(wStart, 6);
+        const days = [];
+
+        for (let dIdx = 0; dIdx < 7; dIdx++) {
+          const curDate = addDays(wStart, dIdx);
+          const dow = dIdx + 1;
+          const activeCourses = [];
+
+          for (const c of courses) {
+            if (Number(c.dayOfWeek) === dow && Array.isArray(c.weeks) && c.weeks.includes(w)) {
+              const teacher = (c.teacherByWeek && c.teacherByWeek[String(w)]) ? c.teacherByWeek[String(w)] : c.defaultTeacher;
+              const pDetails = (c.periods || []).map(p => {
+                const pt = getPeriodTimeForBuilding(p, c.buildingGroup);
+                return { period: p, start: pt.start, end: pt.end };
+              });
+              const startTime = pDetails.length > 0 ? pDetails[0].start : c.startTime;
+              const endTime = pDetails.length > 0 ? pDetails[pDetails.length - 1].end : c.endTime;
+
+              activeCourses.push({
+                id: c.id,
+                courseCode: c.courseCode,
+                courseName: c.courseName,
+                className: c.className,
+                teacher: teacher,
+                location: c.location,
+                buildingGroup: c.buildingGroup || "沙教三、四号楼",
+                startPeriod: c.startPeriod,
+                endPeriod: c.endPeriod,
+                periods: c.periods,
+                startTime: startTime,
+                endTime: endTime,
+                periodTimes: pDetails,
+                weeksText: c.weeksText,
+                weeks: c.weeks,
+                color: c.color || "#2563eb"
+              });
+            }
+          }
+
+          days.push({
+            date: curDate,
+            monthDay: curDate.slice(5),
+            dayOfWeek: dow,
+            weekdayName: WEEKDAY_NAMES[dIdx],
+            hasClasses: activeCourses.length > 0,
+            totalPeriodsWithClass: activeCourses.reduce((acc, item) => acc + (item.periods ? item.periods.length : 0), 0),
+            courses: activeCourses
+          });
+        }
+
+        weeksCalendar.push({
+          weekNumber: w,
+          startDate: wStart,
+          endDate: wEnd,
+          days: days
+        });
+      }
+
+      appState.scheduleData.weeksCalendar = weeksCalendar;
+      meta.semesterEndSunday = addDays(startMonday, totalWeeks * 7 - 1);
+      try {
+        localStorage.setItem("cumtb_saved_schedule_json_v1", JSON.stringify(appState.scheduleData));
+      } catch (e) {}
+    }
+
+    function setDateSelection(isoDate) {
+      const meta = appState.scheduleData.metadata;
+      const startMonday = meta.semesterStartMonday || "2026-08-31";
+      const totalWeeks = Number(meta.totalWeeks) || 20;
+      const offset = diffDays(startMonday, isoDate);
+
+      if (offset < 0) {
+        appState.selectedWeek = 1;
+        appState.selectedDayOfWeek = 1;
+        appState.selectedDate = startMonday;
+      } else if (offset >= totalWeeks * 7) {
+        appState.selectedWeek = totalWeeks;
+        appState.selectedDayOfWeek = 7;
+        appState.selectedDate = addDays(startMonday, totalWeeks * 7 - 1);
+      } else {
+        appState.selectedWeek = Math.floor(offset / 7) + 1;
+        appState.selectedDayOfWeek = (offset % 7) + 1;
+        appState.selectedDate = isoDate;
+      }
+      renderAll();
+    }
+
+    function setWeekSelection(weekNum, keepDayOfWeek = true) {
+      const totalWeeks = Number(appState.scheduleData.metadata.totalWeeks) || 20;
+      const clampedW = Math.max(1, Math.min(totalWeeks, Number(weekNum)));
+      appState.selectedWeek = clampedW;
+      const dow = keepDayOfWeek ? appState.selectedDayOfWeek : 1;
+      const weekObj = appState.scheduleData.weeksCalendar[clampedW - 1];
+      if (weekObj && weekObj.days[dow - 1]) {
+        appState.selectedDate = weekObj.days[dow - 1].date;
+      }
+      renderAll();
+    }
+
+    // =========================================================================
+    // 3. 界面渲染函数
+    // =========================================================================
+    function renderHeaderAndStatus() {
+      const meta = appState.scheduleData.metadata;
+      document.getElementById("headerTitle").textContent = `${meta.university || "中国矿业大学（北京）"} · 逐周逐日智能课表`;
+      document.getElementById("headerSemesterBadge").textContent = `${meta.semesterCode || "2026-20271"} 学期`;
+      document.getElementById("headerStudentBadge").textContent = `学生：${meta.studentName || "同学"}`;
+      document.getElementById("headerTermRange").textContent = `${meta.semesterStartMonday}（第1周周一）至 ${meta.semesterEndSunday}（共${meta.totalWeeks}周）`;
+
+      const dateInput = document.getElementById("datePickerInput");
+      dateInput.min = meta.semesterStartMonday;
+      dateInput.max = meta.semesterEndSunday;
+      dateInput.value = appState.selectedDate;
+
+      const weekObj = appState.scheduleData.weeksCalendar[appState.selectedWeek - 1];
+      const dayObj = weekObj ? weekObj.days[appState.selectedDayOfWeek - 1] : null;
+
+      document.getElementById("statusWeekBadge").textContent = `第 ${appState.selectedWeek} 周`;
+      const [y, m, d] = appState.selectedDate.split("-");
+      document.getElementById("statusWeekdayText").textContent = `${y}年${Number(m)}月${Number(d)}日 ${WEEKDAY_NAMES[appState.selectedDayOfWeek - 1]}`;
+
+      const isTodayTag = document.getElementById("statusIsTodayTag");
+      if (appState.selectedDate === REFERENCE_TODAY) {
+        isTodayTag.classList.remove("hidden");
+        isTodayTag.textContent = "★ 当前基准日 (今日)";
+      } else {
+        isTodayTag.classList.add("hidden");
+      }
+
+      const summaryEl = document.getElementById("statusDayCourseSummary");
+      if (dayObj && dayObj.courses.length > 0) {
+        const names = dayObj.courses.map(c => `《${c.courseName}》(第${c.startPeriod}-${c.endPeriod}节)`).join("、");
+        summaryEl.className = "text-xs font-semibold text-emerald-300";
+        summaryEl.textContent = `当日有 ${dayObj.courses.length} 门课（共 ${dayObj.totalPeriodsWithClass} 节）：${names}`;
+      } else {
+        summaryEl.className = "text-xs font-medium text-slate-300";
+        summaryEl.textContent = "当日无排定固定时段课程（可自主安排线上课程学习）";
+      }
+    }
+
+    function renderWeekSelectorStrip() {
+      const weeks = appState.scheduleData.weeksCalendar || [];
+      const curWeekObj = weeks[appState.selectedWeek - 1];
+      if (curWeekObj) {
+        document.getElementById("weekRangeSubtitle").textContent =
+          `第 ${curWeekObj.weekNumber} 周日期区间：${curWeekObj.startDate}（周一）至 ${curWeekObj.endDate}（周日）`;
+      }
+
+      // Dropdown
+      const dropdown = document.getElementById("weekSelectDropdown");
+      dropdown.innerHTML = weeks.map(w => {
+        const totalClasses = w.days.reduce((acc, d) => acc + d.courses.length, 0);
+        const refTag = (w.startDate <= REFERENCE_TODAY && REFERENCE_TODAY <= w.endDate) ? " [当前周]" : "";
+        return `<option value="${w.weekNumber}" ${w.weekNumber === appState.selectedWeek ? "selected" : ""}>
+          第 ${w.weekNumber} 周 (${w.startDate.slice(5)} ~ ${w.endDate.slice(5)}) · ${totalClasses}门次${refTag}
+        </option>`;
+      }).join("");
+
+      // Pills
+      const pillsContainer = document.getElementById("weekPillsContainer");
+      pillsContainer.innerHTML = weeks.map(w => {
+        const isSelected = w.weekNumber === appState.selectedWeek;
+        const isCurrentRefWeek = (w.startDate <= REFERENCE_TODAY && REFERENCE_TODAY <= w.endDate);
+        const totalClasses = w.days.reduce((acc, d) => acc + d.courses.length, 0);
+
+        let btnClass = "px-2.5 py-1.5 rounded-xl text-xs font-medium transition shrink-0 border flex flex-col items-center min-w-[66px] ";
+        if (isSelected) {
+          btnClass += "bg-blue-600 text-white border-blue-600 shadow-sm font-bold";
+        } else if (isCurrentRefWeek) {
+          btnClass += "bg-amber-50 text-amber-900 border-amber-300 hover:bg-amber-100";
+        } else {
+          btnClass += "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100";
+        }
+
+        const dotHtml = totalClasses > 0
+          ? `<span class="text-[10px] ${isSelected ? 'text-blue-100' : 'text-emerald-600'} font-semibold">${totalClasses}次课</span>`
+          : `<span class="text-[10px] ${isSelected ? 'text-blue-200' : 'text-slate-400'}">无排课</span>`;
+
+        return `<button type="button" data-week-pill="${w.weekNumber}" class="${btnClass}">
+          <span>第${w.weekNumber}周${isCurrentRefWeek ? "★" : ""}</span>
+          ${dotHtml}
+        </button>`;
+      }).join("");
+
+      pillsContainer.querySelectorAll("[data-week-pill]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const wNum = Number(btn.getAttribute("data-week-pill"));
+          setWeekSelection(wNum, true);
+        });
+      });
+    }
+
+    function renderLeftPanels() {
+      const tabWeekBtn = document.getElementById("tabLeftWeekGrid");
+      const tabCalBtn = document.getElementById("tabLeftSemesterCal");
+      const tabCourseBtn = document.getElementById("tabLeftCourseList");
+
+      const panelWeek = document.getElementById("panelLeftWeekGrid");
+      const panelCal = document.getElementById("panelLeftSemesterCal");
+      const panelCourse = document.getElementById("panelLeftCourseList");
+      const ghostWrap = document.getElementById("GhostCourseToggleWrap");
+
+      const activeTabClass = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-blue-700 shadow-sm transition";
+      const inactiveTabClass = "px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition";
+
+      tabWeekBtn.className = appState.leftTab === "weekGrid" ? activeTabClass : inactiveTabClass;
+      tabCalBtn.className = appState.leftTab === "semesterCal" ? activeTabClass : inactiveTabClass;
+      tabCourseBtn.className = appState.leftTab === "courseList" ? activeTabClass : inactiveTabClass;
+
+      panelWeek.classList.toggle("hidden", appState.leftTab !== "weekGrid");
+      panelCal.classList.toggle("hidden", appState.leftTab !== "semesterCal");
+      panelCourse.classList.toggle("hidden", appState.leftTab !== "courseList");
+      ghostWrap.classList.toggle("hidden", appState.leftTab !== "weekGrid");
+
+      if (appState.leftTab === "weekGrid") {
+        renderWeeklyGrid();
+      } else if (appState.leftTab === "semesterCal") {
+        renderSemesterCalMatrix();
+      } else {
+        renderCourseSummaryList();
+      }
+    }
+
+    function renderWeeklyGrid() {
+      const weekObj = appState.scheduleData.weeksCalendar[appState.selectedWeek - 1];
+      if (!weekObj) return;
+
+      // Stats badge
+      const totalCourseSessions = weekObj.days.reduce((acc, d) => acc + d.courses.length, 0);
+      const totalPeriods = weekObj.days.reduce((acc, d) => acc + d.totalPeriodsWithClass, 0);
+      document.getElementById("weekStatsBadge").textContent =
+        `第 ${weekObj.weekNumber} 周：共 ${totalCourseSessions} 门次课程 / 合计 ${totalPeriods} 节课`;
+
+      // Header Row
+      const headerRow = document.getElementById("weekGridHeaderRow");
+      let headerHtml = `<th class="py-2.5 px-1.5 border-r border-slate-200 w-12">时间</th>
+                        <th class="py-2.5 px-1.5 border-r border-slate-200 w-14">节次</th>`;
+
+      weekObj.days.forEach((d, idx) => {
+        const isSelectedDay = d.date === appState.selectedDate;
+        const isToday = d.date === REFERENCE_TODAY;
+        let thCls = "py-2 px-1.5 border-r border-slate-200 cursor-pointer transition select-none ";
+        if (isSelectedDay) {
+          thCls += "bg-blue-600 text-white font-bold";
+        } else if (isToday) {
+          thCls += "bg-amber-50 text-amber-900 hover:bg-amber-100";
+        } else {
+          thCls += "hover:bg-slate-200/70 text-slate-700";
+        }
+        headerHtml += `<th data-header-date="${d.date}" class="${thCls}">
+          <div class="text-xs">${ d.weekdayName }${isToday ? " ★" : ""}</div>
+          <div class="text-[11px] ${isSelectedDay ? 'text-blue-100' : 'text-slate-500'} font-mono mt-0.5">${d.monthDay}</div>
+        </th>`;
+      });
+      headerRow.innerHTML = headerHtml;
+
+      headerRow.querySelectorAll("[data-header-date]").forEach(th => {
+        th.addEventListener("click", () => {
+          setDateSelection(th.getAttribute("data-header-date"));
+        });
+      });
+
+      // Precompute cell occupancy for periods 1..12 x dow 1..7
+      const allCourses = appState.scheduleData.courses || [];
+      const curW = weekObj.weekNumber;
+
+      // Build map of cell -> course info
+      const skipCell = {}; // `${dow}_${period}` -> true when covered by rowSpan
+      const cellEntries = {}; // `${dow}_${period}` -> { activeCourses: [], inactiveCourses: [], span: number }
+
+      for (let dow = 1; dow <= 7; dow++) {
+        // Active courses in this week & day
+        const activeToday = allCourses.filter(c => Number(c.dayOfWeek) === dow && c.weeks.includes(curW));
+        const inactiveToday = appState.showInactiveWeeks
+          ? allCourses.filter(c => Number(c.dayOfWeek) === dow && !c.weeks.includes(curW))
+          : [];
+
+        // Place active courses first
+        activeToday.forEach(c => {
+          const sp = c.startPeriod;
+          const ep = c.endPeriod;
+          const span = ep - sp + 1;
+          const key = `${dow}_${sp}`;
+          if (!cellEntries[key]) {
+            cellEntries[key] = { active: [], inactive: [], span: span };
+            for (let p = sp + 1; p <= ep; p++) {
+              skipCell[`${dow}_${p}`] = true;
+            }
+          }
+          cellEntries[key].active.push(c);
+        });
+
+        // Place inactive courses if enabled and not colliding with a skipped cell
+        inactiveToday.forEach(c => {
+          const sp = c.startPeriod;
+          const ep = c.endPeriod;
+          const span = ep - sp + 1;
+          const key = `${dow}_${sp}`;
+          if (skipCell[key]) return;
+          if (!cellEntries[key]) {
+            // Check if any sub-period is already occupied by an active course start
+            let conflict = false;
+            for (let p = sp; p <= ep; p++) {
+              if (cellEntries[`${dow}_${p}`] || skipCell[`${dow}_${p}`]) conflict = true;
+            }
+            if (!conflict) {
+              cellEntries[key] = { active: [], inactive: [c], span: span };
+              for (let p = sp + 1; p <= ep; p++) {
+                skipCell[`${dow}_${p}`] = true;
+              }
+            }
+          } else {
+            cellEntries[key].inactive.push(c);
+          }
+        });
+      }
+
+      const periodRules = appState.scheduleData.periodRules || DEFAULT_SCHEDULE_DATA.periodRules;
+      const tbody = document.getElementById("weekGridBody");
+      let bodyHtml = "";
+
+      for (let p = 1; p <= 12; p++) {
+        const rule = periodRules[p - 1];
+        let trHtml = `<tr class="hover:bg-slate-50/60">`;
+
+        // Section column (上午 1-4, 下午 5-9, 晚上 10-12)
+        if (p === 1) {
+          trHtml += `<td rowspan="4" class="border-r border-slate-200 bg-slate-50 text-center font-bold text-slate-600 align-middle px-1">上午</td>`;
+        } else if (p === 5) {
+          trHtml += `<td rowspan="5" class="border-r border-slate-200 bg-slate-50 text-center font-bold text-slate-600 align-middle px-1">下午</td>`;
+        } else if (p === 10) {
+          trHtml += `<td rowspan="3" class="border-r border-slate-200 bg-slate-50 text-center font-bold text-slate-600 align-middle px-1">晚上</td>`;
+        }
+
+        // Period number & default time
+        const pTimeLabel = (p === 3 || p === 4) ? `${rule.defaultStart}*` : rule.defaultStart;
+        trHtml += `<td class="py-2 px-1.5 border-r border-slate-200 text-center bg-slate-50/50">
+          <div class="font-bold text-slate-800">第${p}节</div>
+          <div class="text-[10px] text-slate-400 font-mono">${pTimeLabel}</div>
+        </td>`;
+
+        // 7 days columns
+        for (let dow = 1; dow <= 7; dow++) {
+          const key = `${dow}_${p}`;
+          if (skipCell[key]) continue;
+
+          const dayInfo = weekObj.days[dow - 1];
+          const isSelectedCol = dayInfo.date === appState.selectedDate;
+          const entry = cellEntries[key];
+
+          if (entry && (entry.active.length > 0 || entry.inactive.length > 0)) {
+            let cardsHtml = "";
+            entry.active.forEach(c => {
+              const teacher = (c.teacherByWeek && c.teacherByWeek[String(curW)]) ? c.teacherByWeek[String(curW)] : c.defaultTeacher;
+              const pStart = getPeriodTimeForBuilding(c.startPeriod, c.buildingGroup).start;
+              const pEnd = getPeriodTimeForBuilding(c.endPeriod, c.buildingGroup).end;
+
+              cardsHtml += `<div data-course-id="${c.id}" data-cell-date="${dayInfo.date}"
+                style="background-color: ${c.color}15; border-left: 4px solid ${c.color};"
+                class="rounded-lg p-1.5 mb-1 last:mb-0 cursor-pointer hover:brightness-95 transition text-left shadow-2xs">
+                <div class="font-bold text-slate-900 leading-snug text-xs">${c.courseName}</div>
+                <div class="text-[10px] font-medium text-slate-600 mt-0.5">👩‍🏫 教师：<span class="font-bold text-slate-900">${teacher}</span></div>
+                <div class="text-[10px] text-slate-600">📍 ${c.location}</div>
+                <div class="text-[10px] font-mono text-slate-500 mt-0.5">🕒 ${pStart}-${pEnd} (${c.weeksText})</div>
+              </div>`;
+            });
+
+            entry.inactive.forEach(c => {
+              cardsHtml += `<div data-course-id="${c.id}" data-cell-date="${dayInfo.date}"
+                class="rounded-lg p-1.5 mb-1 last:mb-0 cursor-pointer bg-slate-100 border border-dashed border-slate-300 text-slate-400 text-left opacity-75 hover:opacity-100 transition">
+                <div class="font-semibold leading-snug text-[11px]">[非本周] ${c.courseName}</div>
+                <div class="text-[10px] mt-0.5">📍 ${c.location} · ${c.weeksText}</div>
+              </div>`;
+            });
+
+            trHtml += `<td rowspan="${entry.span}" data-empty-date="${dayInfo.date}" class="p-1 border-r border-slate-200 align-top ${isSelectedCol ? 'bg-blue-50/30' : ''}">
+              ${cardsHtml}
+            </td>`;
+          } else {
+            trHtml += `<td data-empty-date="${dayInfo.date}" class="py-2 px-1 border-r border-slate-200 cursor-pointer hover:bg-blue-50/40 transition ${isSelectedCol ? 'bg-blue-50/30' : ''}"></td>`;
+          }
+        }
+
+        trHtml += `</tr>`;
+        bodyHtml += trHtml;
+      }
+
+      tbody.innerHTML = bodyHtml;
+
+      // Attach listeners for clicking cells or courses
+      tbody.querySelectorAll("[data-empty-date]").forEach(td => {
+        td.addEventListener("click", (e) => {
+          const dt = td.getAttribute("data-empty-date");
+          if (dt) setDateSelection(dt);
+        });
+      });
+
+      tbody.querySelectorAll("[data-course-id]").forEach(card => {
+        card.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const cId = card.getAttribute("data-course-id");
+          const dt = card.getAttribute("data-cell-date");
+          if (dt) setDateSelection(dt);
+          openCourseDetailModal(cId, appState.selectedWeek);
+        });
+      });
+
+      // Render Online Courses inline
+      const onlineInline = document.getElementById("onlineCoursesInline");
+      const onlineList = appState.scheduleData.onlineCourses || [];
+      onlineInline.innerHTML = onlineList.map(oc => `
+        <span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-xs text-slate-700">
+          🌐 <strong>${oc.className}</strong>（教师：${oc.teacher} · 选课 ${oc.enrolledCount} 人）
+        </span>
+      `).join("");
+    }
+
+    function renderSemesterCalMatrix() {
+      const weeks = appState.scheduleData.weeksCalendar || [];
+      const tbody = document.getElementById("semesterCalMatrixBody");
+
+      tbody.innerHTML = weeks.map(w => {
+        const isSelectedW = w.weekNumber === appState.selectedWeek;
+        let rowHtml = `<tr class="${isSelectedW ? 'bg-blue-50/40' : 'hover:bg-slate-50'}">
+          <td class="py-2 px-2 border-r border-slate-200 font-bold text-slate-800">
+            <div>第 ${w.weekNumber} 周</div>
+            <div class="text-[10px] text-slate-400 font-mono font-normal">${w.startDate.slice(5)}~${w.endDate.slice(5)}</div>
+          </td>`;
+
+        w.days.forEach(d => {
+          const isSelectedDate = d.date === appState.selectedDate;
+          const isToday = d.date === REFERENCE_TODAY;
+
+          let cellCls = "py-1.5 px-1.5 border-r border-slate-200 cursor-pointer transition ";
+          if (isSelectedDate) {
+            cellCls += "bg-blue-600 text-white font-bold ring-2 ring-blue-400 ring-inset";
+          } else if (isToday) {
+            cellCls += "bg-amber-100 text-amber-950 font-bold";
+          } else if (d.hasClasses) {
+            cellCls += "bg-emerald-50/50 hover:bg-emerald-100/60 text-slate-800";
+          } else {
+            cellCls += "hover:bg-slate-100 text-slate-400";
+          }
+
+          const dots = d.courses.map(c =>
+            `<span style="background-color:${isSelectedDate ? '#ffffff' : c.color}" class="inline-block w-1.5 h-1.5 rounded-full"></span>`
+          ).join(" ");
+
+          rowHtml += `<td data-cal-date="${d.date}" class="${cellCls}">
+            <div class="font-mono text-[11px]">${d.monthDay}${isToday ? "★" : ""}</div>
+            ${d.hasClasses
+              ? `<div class="text-[10px] ${isSelectedDate ? 'text-blue-100' : 'text-emerald-700'} font-semibold mt-0.5">${d.totalPeriodsWithClass}节 ${dots}</div>`
+              : `<div class="text-[10px] opacity-60 mt-0.5">无课</div>`
+            }
+          </td>`;
+        });
+
+        rowHtml += `</tr>`;
+        return rowHtml;
+      }).join("");
+
+      tbody.querySelectorAll("[data-cal-date]").forEach(td => {
+        td.addEventListener("click", () => {
+          setDateSelection(td.getAttribute("data-cal-date"));
+        });
+      });
+    }
+
+    function renderCourseSummaryList() {
+      const container = document.getElementById("courseSummaryListContainer");
+      const courses = appState.scheduleData.courses || [];
+      const online = appState.scheduleData.onlineCourses || [];
+
+      let html = courses.map(c => {
+        const teacherEntries = Object.entries(c.teacherByWeek || {}).map(([w, t]) => `第${w}周:${t}`).join(" | ");
+        const pStart = getPeriodTimeForBuilding(c.startPeriod, c.buildingGroup).start;
+        const pEnd = getPeriodTimeForBuilding(c.endPeriod, c.buildingGroup).end;
+
+        return `<div data-summary-course="${c.id}" class="p-3 rounded-xl border border-slate-200 hover:border-blue-300 transition bg-slate-50/50 cursor-pointer">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span style="background-color:${c.color}" class="w-3 h-3 rounded-full inline-block"></span>
+              <span class="font-bold text-sm text-slate-900">${c.className}</span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-700">${c.courseCode}</span>
+            </div>
+            <span class="text-xs font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-md border border-blue-200">
+              ${c.weekdayName} 第${c.startPeriod}-${c.endPeriod}节 (${pStart}-${pEnd})
+            </span>
+          </div>
+          <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-600">
+            <div>📍 <strong>上课地点</strong>：${c.location}（${c.buildingGroup}作息）</div>
+            <div>📅 <strong>上课周次</strong>：${c.weeksText}（共 ${c.weeks.length} 周）</div>
+          </div>
+          <div class="mt-1.5 text-[11px] text-slate-500 bg-white p-2 rounded-lg border border-slate-200/80">
+            👩‍🏫 <strong>逐周任课教师对应</strong>：${teacherEntries}
+          </div>
+        </div>`;
+      }).join("");
+
+      if (online.length > 0) {
+        html += `<div class="pt-2">
+          <h4 class="text-xs font-bold text-slate-700 mb-2">🌐 未安排具体时间的线上课程</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${online.map(o => `<div class="p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs">
+              <div class="font-bold text-slate-800">${o.className}</div>
+              <div class="text-slate-600 mt-1">任课教师：<strong>${o.teacher}</strong> · 选课人数：${o.enrolledCount}人</div>
+              <div class="text-slate-400 text-[11px] mt-0.5">${o.note}</div>
+            </div>`).join("")}
+          </div>
+        </div>`;
+      }
+
+      container.innerHTML = html;
+      container.querySelectorAll("[data-summary-course]").forEach(el => {
+        el.addEventListener("click", () => {
+          openCourseDetailModal(el.getAttribute("data-summary-course"), appState.selectedWeek);
+        });
+      });
+    }
+
+    // =========================================================================
+    // 4. 右侧面板：单日【逐第几节课（1~12节）】与【逐小时（08:00~22:00）】渲染
+    // =========================================================================
+    function renderRightDailyPanels() {
+      const weekObj = appState.scheduleData.weeksCalendar[appState.selectedWeek - 1];
+      if (!weekObj) return;
+      const dayObj = weekObj.days[appState.selectedDayOfWeek - 1];
+      if (!dayObj) return;
+
+      document.getElementById("rightDayWeekTag").textContent = `第 ${weekObj.weekNumber} 周 · ${dayObj.weekdayName}`;
+      document.getElementById("rightDayDateTitle").textContent = `${dayObj.date} 每日课表`;
+
+      const overviewEl = document.getElementById("rightDayOverviewText");
+      if (dayObj.courses.length > 0) {
+        const desc = dayObj.courses.map(c => `${c.courseName}(第${c.startPeriod}-${c.endPeriod}节, 教师:${c.teacher}, ${c.location})`).join("；");
+        overviewEl.textContent = `当日有 ${dayObj.courses.length} 门课（共 ${dayObj.totalPeriodsWithClass} 节）：${desc}`;
+        overviewEl.className = "text-xs text-emerald-700 font-medium mt-0.5";
+      } else {
+        overviewEl.textContent = `当日全天 1~12 节均无排定线下课程（空闲）`;
+        overviewEl.className = "text-xs text-slate-500 mt-0.5";
+      }
+
+      // Render 7-day quick strip for current week
+      const stripEl = document.getElementById("rightWeekDayStrip");
+      stripEl.innerHTML = weekObj.days.map((d, idx) => {
+        const isSel = d.date === appState.selectedDate;
+        const isToday = d.date === REFERENCE_TODAY;
+        let cls = "py-1.5 px-1 rounded-lg text-xs cursor-pointer transition flex flex-col items-center ";
+        if (isSel) {
+          cls += "bg-blue-600 text-white font-bold shadow-xs";
+        } else if (isToday) {
+          cls += "bg-amber-100 text-amber-900 font-semibold";
+        } else {
+          cls += "hover:bg-slate-200/70 text-slate-700";
+        }
+        return `<button type="button" data-strip-date="${d.date}" class="${cls}">
+          <span class="text-[11px]">${SHORT_WEEKDAYS[idx]}</span>
+          <span class="text-[10px] font-mono ${isSel ? 'text-blue-100' : 'text-slate-500'}">${d.monthDay}</span>
+          <span class="mt-0.5 w-1.5 h-1.5 rounded-full ${d.hasClasses ? (isSel ? 'bg-white' : 'bg-emerald-500') : 'bg-transparent'}"></span>
+        </button>`;
+      }).join("");
+
+      stripEl.querySelectorAll("[data-strip-date]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          setDateSelection(btn.getAttribute("data-strip-date"));
+        });
+      });
+
+      // Toggle buttons state
+      const btnPeriod = document.getElementById("btnModeByPeriod");
+      const btnHour = document.getElementById("btnModeByHour");
+      const panelPeriod = document.getElementById("panelRightByPeriod");
+      const panelHour = document.getElementById("panelRightByHour");
+
+      const activeBtnCls = "py-1.5 px-3 rounded-lg text-xs font-bold bg-white text-blue-700 shadow-sm transition flex items-center justify-center gap-1.5";
+      const inactiveBtnCls = "py-1.5 px-3 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5";
+
+      btnPeriod.className = appState.rightMode === "byPeriod" ? activeBtnCls : inactiveBtnCls;
+      btnHour.className = appState.rightMode === "byHour" ? activeBtnCls : inactiveBtnCls;
+
+      panelPeriod.classList.toggle("hidden", appState.rightMode !== "byPeriod");
+      panelHour.classList.toggle("hidden", appState.rightMode !== "byHour");
+
+      if (appState.rightMode === "byPeriod") {
+        renderDailyByPeriod(dayObj);
+      } else {
+        renderDailyByHour(dayObj);
+      }
+    }
+
+    function renderDailyByPeriod(dayObj) {
+      const container = document.getElementById("panelRightByPeriod");
+      const rules = appState.scheduleData.periodRules || DEFAULT_SCHEDULE_DATA.periodRules;
+
+      let html = "";
+      let lastSection = "";
+
+      for (let p = 1; p <= 12; p++) {
+        const rule = rules[p - 1];
+        if (rule.section !== lastSection) {
+          lastSection = rule.section;
+          html += `<div class="pt-2 first:pt-0 pb-1 flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">${lastSection}时段</span>
+            <div class="flex-1 h-px bg-slate-200"></div>
+          </div>`;
+        }
+
+        // Check if any active course on dayObj covers period p
+        const matchedCourse = dayObj.courses.find(c => Array.isArray(c.periods) && c.periods.includes(p));
+
+        if (matchedCourse) {
+          const pt = getPeriodTimeForBuilding(p, matchedCourse.buildingGroup);
+          html += `<div data-period-course="${matchedCourse.id}"
+            style="border-left: 4px solid ${matchedCourse.color}; background-color: ${matchedCourse.color}10;"
+            class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between gap-3 cursor-pointer hover:brightness-95 transition">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="text-center shrink-0 w-16 py-1 px-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+                <div class="text-xs font-bold text-slate-900">第 ${p} 节</div>
+                <div class="text-[10px] font-mono text-blue-700 font-semibold">${pt.start}-${pt.end}</div>
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-emerald-600 text-white">有课</span>
+                  <span class="font-bold text-xs sm:text-sm text-slate-900 truncate">${matchedCourse.courseName}</span>
+                  <span class="text-[10px] font-mono text-slate-500">(${matchedCourse.courseCode})</span>
+                </div>
+                <div class="text-xs text-slate-700 mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5">
+                  <span>👩‍🏫 任课教师：<strong>${matchedCourse.teacher}</strong></span>
+                  <span>📍 地点：<strong>${matchedCourse.location}</strong></span>
+                </div>
+                <div class="text-[11px] text-slate-500 mt-0.5">
+                  连上节次：第${matchedCourse.startPeriod}-${matchedCourse.endPeriod}节 (${matchedCourse.startTime}-${matchedCourse.endTime}) · ${matchedCourse.buildingGroup}时间
+                </div>
+              </div>
+            </div>
+          </div>`;
+        } else {
+          // No class in this period
+          const extraNote = (p === 3 || p === 4)
+            ? `<span class="text-[10px] text-slate-400 block">沙教一/二楼 ${rule.variants["沙教一、二号楼"].start}-${rule.variants["沙教一、二号楼"].end} | 沙教三/四楼 ${rule.variants["沙教三、四号楼"].start}-${rule.variants["沙教三、四号楼"].end}</span>`
+            : "";
+
+          html += `<div class="p-2 rounded-xl border border-slate-200/70 bg-slate-50/60 flex items-center justify-between gap-3 text-slate-400">
+            <div class="flex items-center gap-3">
+              <div class="text-center shrink-0 w-16 py-1 px-1.5 rounded-lg bg-white/80 border border-slate-200/60">
+                <div class="text-xs font-semibold text-slate-500">第 ${p} 节</div>
+                <div class="text-[10px] font-mono text-slate-400">${rule.defaultStart}-${rule.defaultEnd}</div>
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="px-1.5 py-0.5 text-[10px] font-medium rounded bg-slate-200/80 text-slate-500">无课</span>
+                  <span class="text-xs text-slate-400">本节空闲</span>
+                </div>
+                ${extraNote}
+              </div>
+            </div>
+          </div>`;
+        }
+      }
+
+      container.innerHTML = html;
+      container.querySelectorAll("[data-period-course]").forEach(el => {
+        el.addEventListener("click", () => {
+          openCourseDetailModal(el.getAttribute("data-period-course"), appState.selectedWeek);
+        });
+      });
+    }
+
+    function renderDailyByHour(dayObj) {
+      const container = document.getElementById("panelRightByHour");
+      let html = `<div class="text-xs text-slate-500 mb-2 bg-slate-50 p-2 rounded-lg border border-slate-200">
+        ⏱ <strong>每日逐小时检测视图（08:00 ~ 22:00）</strong>：自动计算每个整点小时段（60分钟）内是否有课、包含哪几节课以及具体分钟区间。
+      </div>`;
+
+      for (let h = 8; h <= 21; h++) {
+        const hStartStr = `${String(h).padStart(2, "0")}:00`;
+        const hEndStr = `${String(h + 1).padStart(2, "0")}:00`;
+        const hStartMin = h * 60;
+        const hEndMin = (h + 1) * 60;
+
+        // Find all period segments from dayObj.courses that overlap with [hStartMin, hEndMin)
+        const overlaps = [];
+        dayObj.courses.forEach(c => {
+          (c.periodTimes || []).forEach(pt => {
+            const pStartMin = timeToMinutes(pt.start);
+            const pEndMin = timeToMinutes(pt.end);
+            const overlapStart = Math.max(hStartMin, pStartMin);
+            const overlapEnd = Math.min(hEndMin, pEndMin);
+            if (overlapStart < overlapEnd) {
+              overlaps.push({
+                course: c,
+                period: pt.period,
+                periodStart: pt.start,
+                periodEnd: pt.end,
+                overlapMinutes: overlapEnd - overlapStart,
+                offsetPct: ((overlapStart - hStartMin) / 60) * 100,
+                widthPct: ((overlapEnd - overlapStart) / 60) * 100
+              });
+            }
+          });
+        });
+
+        if (overlaps.length > 0) {
+          const primaryCourse = overlaps[0].course;
+          const periodLabels = overlaps.map(o => `第${o.period}节 (${o.periodStart}-${o.periodEnd})`).join("、");
+
+          // Minute bar segments inside this hour
+          const barSegments = overlaps.map(o =>
+            `<div style="left:${o.offsetPct}%; width:${o.widthPct}%; background-color:${o.course.color};"
+              class="absolute top-0 bottom-0 rounded-xs" title="第${o.period}节 ${o.periodStart}-${o.periodEnd}"></div>`
+          ).join("");
+
+          html += `<div data-hour-course="${primaryCourse.id}"
+            style="border-left: 4px solid ${primaryCourse.color}; background-color: ${primaryCourse.color}10;"
+            class="p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:brightness-95 transition">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">${hStartStr} - ${hEndStr}</span>
+                <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-emerald-600 text-white">本小时有课</span>
+                <span class="font-bold text-xs sm:text-sm text-slate-900">${primaryCourse.courseName}</span>
+              </div>
+              <span class="text-[11px] font-semibold text-slate-600 shrink-0">📍 ${primaryCourse.location}</span>
+            </div>
+            <div class="mt-1.5 text-xs text-slate-700 flex flex-wrap items-center justify-between gap-2">
+              <span>📚 涵盖节次：<strong>${periodLabels}</strong></span>
+              <span>👩‍🏫 教师：<strong>${primaryCourse.teacher}</strong></span>
+            </div>
+            <!-- 60-minute visual timeline bar -->
+            <div class="mt-2">
+              <div class="relative h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                ${barSegments}
+              </div>
+              <div class="flex justify-between text-[9px] font-mono text-slate-400 mt-0.5">
+                <span>${String(h).padStart(2, "0")}:00</span>
+                <span>${String(h).padStart(2, "0")}:15</span>
+                <span>${String(h).padStart(2, "0")}:30</span>
+                <span>${String(h).padStart(2, "0")}:45</span>
+                <span>${String(h + 1).padStart(2, "0")}:00</span>
+              </div>
+            </div>
+          </div>`;
+        } else {
+          html += `<div class="p-2 rounded-xl border border-slate-200/70 bg-slate-50/60 flex items-center justify-between text-slate-400">
+            <div class="flex items-center gap-2.5">
+              <span class="font-mono text-xs font-medium text-slate-500 bg-white/80 px-2 py-0.5 rounded border border-slate-200/60">${hStartStr} - ${hEndStr}</span>
+              <span class="px-1.5 py-0.5 text-[10px] rounded bg-slate-200/70 text-slate-500">无课</span>
+              <span class="text-xs">该小时段空闲</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-300">0 / 60 min</span>
+          </div>`;
+        }
+      }
+
+      container.innerHTML = html;
+      container.querySelectorAll("[data-hour-course]").forEach(el => {
+        el.addEventListener("click", () => {
+          openCourseDetailModal(el.getAttribute("data-hour-course"), appState.selectedWeek);
+        });
+      });
+    }
+
+    // =========================================================================
+    // 5. 课程详情弹窗 & JSON 数据管理弹窗
+    // =========================================================================
+    function openCourseDetailModal(courseId, currentWeekNum) {
+      const c = (appState.scheduleData.courses || []).find(item => item.id === courseId);
+      if (!c) return;
+
+      const modal = document.getElementById("courseDetailModal");
+      const header = document.getElementById("modalCourseHeader");
+      header.style.backgroundColor = c.color || "#2563eb";
+
+      document.getElementById("modalCourseCode").textContent = `${c.courseCode} · ${c.weekdayName} 第${c.startPeriod}-${c.endPeriod}节`;
+      document.getElementById("modalCourseTitle").textContent = c.className;
+
+      const pStart = getPeriodTimeForBuilding(c.startPeriod, c.buildingGroup).start;
+      const pEnd = getPeriodTimeForBuilding(c.endPeriod, c.buildingGroup).end;
+
+      // Build 20-week badge grid showing which weeks have this class and who teaches it
+      const weeks = appState.scheduleData.weeksCalendar || [];
+      const weekBadges = weeks.map(wObj => {
+        const w = wObj.weekNumber;
+        const isActive = c.weeks.includes(w);
+        const isCur = w === currentWeekNum;
+        const dayDate = wObj.days[c.dayOfWeek - 1] ? wObj.days[c.dayOfWeek - 1].monthDay : "";
+        const tName = (c.teacherByWeek && c.teacherByWeek[String(w)]) ? c.teacherByWeek[String(w)] : (isActive ? c.defaultTeacher : "-");
+
+        let boxCls = "p-1.5 rounded-lg border text-center text-[11px] ";
+        if (isActive && isCur) {
+          boxCls += "bg-blue-600 text-white border-blue-700 font-bold ring-2 ring-blue-300";
+        } else if (isActive) {
+          boxCls += "bg-emerald-50 text-emerald-900 border-emerald-300 font-semibold";
+        } else {
+          boxCls += "bg-slate-50 text-slate-300 border-slate-200";
+        }
+
+        return `<div class="${boxCls}">
+          <div>第${w}周 (${dayDate})</div>
+          <div class="text-[10px] truncate mt-0.5">${isActive ? tName : "无课"}</div>
+        </div>`;
+      }).join("");
+
+      const body = document.getElementById("modalCourseBody");
+      body.innerHTML = `
+        <div class="grid grid-cols-2 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+          <div><span class="text-slate-400">课程名称：</span><strong class="text-slate-900">${c.courseName}</strong></div>
+          <div><span class="text-slate-400">上课地点：</span><strong class="text-slate-900">${c.location}</strong></div>
+          <div><span class="text-slate-400">上课节次：</span><strong class="text-slate-900">${c.weekdayName} 第${c.startPeriod}-${c.endPeriod}节</strong></div>
+          <div><span class="text-slate-400">精准时间：</span><strong class="text-blue-700 font-mono">${pStart} - ${pEnd}</strong></div>
+          <div class="col-span-2"><span class="text-slate-400">上课周次：</span><strong class="text-slate-900">${c.weeksText}</strong>（${c.buildingGroup}作息标准）</div>
+        </div>
+        <div>
+          <div class="font-bold text-slate-800 mb-1.5">📅 1~20周排课日历与各周任课教师对应表：</div>
+          <div class="grid grid-cols-4 sm:grid-cols-5 gap-1.5">
+            ${weekBadges}
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-400 bg-slate-100 p-2.5 rounded-lg font-mono break-all">
+          原始课表文本：${c.rawText || ""}
+        </div>
+      `;
+
+      modal.classList.remove("hidden");
+    }
+
+    function showJsonToast(msg, isError = false) {
+      const toast = document.getElementById("jsonStatusToast");
+      toast.classList.remove("hidden");
+      toast.className = `px-3 py-2 rounded-lg text-xs font-semibold ${isError ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-emerald-100 text-emerald-800 border border-emerald-300'}`;
+      toast.textContent = msg;
+    }
+
+function downloadJsonFile() {
+      const jsonStr = JSON.stringify(appState.scheduleData, null, 2);
+      const fileName = `cumtb_schedule_${appState.scheduleData.metadata.semesterCode || "2026_2027_1"}.json`;
+      if (window.AndroidBridge && typeof window.AndroidBridge.saveJsonFile === "function") {
+        window.AndroidBridge.saveJsonFile(jsonStr, fileName);
+        return;
+      }
+      const blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function renderAll() {
+      renderHeaderAndStatus();
+      renderWeekSelectorStrip();
+      renderLeftPanels();
+      renderRightDailyPanels();
+    }
+
+    // =========================================================================
+    // 6. 事件绑定与初始化
+    // =========================================================================
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        const savedJson = localStorage.getItem("cumtb_saved_schedule_json_v1");
+        if (savedJson) {
+          const parsed = JSON.parse(savedJson);
+          if (parsed && parsed.metadata && parsed.courses) {
+            appState.scheduleData = parsed;
+          }
+        }
+      } catch (e) {}
+      rebuildWeeksCalendar();
+      setDateSelection(REFERENCE_TODAY);
+
+      // Jump Today
+      document.getElementById("btnJumpToday").addEventListener("click", () => {
+        setDateSelection(REFERENCE_TODAY);
+      });
+
+      // Date Picker & Prev/Next Day
+      document.getElementById("datePickerInput").addEventListener("change", (e) => {
+        if (e.target.value) setDateSelection(e.target.value);
+      });
+      document.getElementById("btnPrevDay").addEventListener("click", () => {
+        setDateSelection(addDays(appState.selectedDate, -1));
+      });
+      document.getElementById("btnNextDay").addEventListener("click", () => {
+        setDateSelection(addDays(appState.selectedDate, 1));
+      });
+
+      // Week Prev/Next & Dropdown
+      document.getElementById("btnPrevWeek").addEventListener("click", () => {
+        setWeekSelection(appState.selectedWeek - 1, true);
+      });
+      document.getElementById("btnNextWeek").addEventListener("click", () => {
+        setWeekSelection(appState.selectedWeek + 1, true);
+      });
+      document.getElementById("weekSelectDropdown").addEventListener("change", (e) => {
+        setWeekSelection(Number(e.target.value), true);
+      });
+
+      // Left Panel Tabs
+      document.getElementById("tabLeftWeekGrid").addEventListener("click", () => {
+        appState.leftTab = "weekGrid";
+        renderLeftPanels();
+      });
+      document.getElementById("tabLeftSemesterCal").addEventListener("click", () => {
+        appState.leftTab = "semesterCal";
+        renderLeftPanels();
+      });
+      document.getElementById("tabLeftCourseList").addEventListener("click", () => {
+        appState.leftTab = "courseList";
+        renderLeftPanels();
+      });
+
+      // Show Inactive Weeks Checkbox
+      document.getElementById("chkShowInactiveWeeks").addEventListener("change", (e) => {
+        appState.showInactiveWeeks = e.target.checked;
+        renderWeeklyGrid();
+      });
+
+      // Right Panel Mode Toggle (ByPeriod vs ByHour)
+      document.getElementById("btnModeByPeriod").addEventListener("click", () => {
+        appState.rightMode = "byPeriod";
+        renderRightDailyPanels();
+      });
+      document.getElementById("btnModeByHour").addEventListener("click", () => {
+        appState.rightMode = "byHour";
+        renderRightDailyPanels();
+      });
+
+      // Course Detail Modal Close
+      document.getElementById("btnCloseCourseModal").addEventListener("click", () => {
+        document.getElementById("courseDetailModal").classList.add("hidden");
+      });
+      document.getElementById("courseDetailModal").addEventListener("click", (e) => {
+        if (e.target.id === "courseDetailModal") {
+          document.getElementById("courseDetailModal").classList.add("hidden");
+        }
+      });
+
+      // Direct Download JSON
+      document.getElementById("btnDownloadJsonDirect").addEventListener("click", downloadJsonFile);
+      document.getElementById("btnModalDownloadJson").addEventListener("click", downloadJsonFile);
+
+      // JSON Modal Open/Close
+      const jsonModal = document.getElementById("jsonModal");
+      const textareaEditor = document.getElementById("textareaJsonEditor");
+      const inputStartMon = document.getElementById("inputStartMonday");
+
+      document.getElementById("btnOpenJsonModal").addEventListener("click", () => {
+        textareaEditor.value = JSON.stringify(appState.scheduleData, null, 2);
+        inputStartMon.value = appState.scheduleData.metadata.semesterStartMonday || "2026-08-31";
+        document.getElementById("jsonStatusToast").classList.add("hidden");
+        jsonModal.classList.remove("hidden");
+      });
+
+      document.getElementById("btnCloseJsonModal").addEventListener("click", () => {
+        jsonModal.classList.add("hidden");
+      });
+
+      // Change Week 1 Start Monday inside Modal
+      inputStartMon.addEventListener("change", (e) => {
+        if (e.target.value) {
+          appState.scheduleData.metadata.semesterStartMonday = e.target.value;
+          rebuildWeeksCalendar();
+          textareaEditor.value = JSON.stringify(appState.scheduleData, null, 2);
+          showJsonToast(`已将第1周周一校准为 ${e.target.value}，并重算全部20周对应日期！点击下方“应用”即可刷新视图。`);
+        }
+      });
+
+      // Reset Default JSON
+      document.getElementById("btnResetDefaultData").addEventListener("click", () => {
+        appState.scheduleData = JSON.parse(JSON.stringify(DEFAULT_SCHEDULE_DATA));
+        rebuildWeeksCalendar();
+        inputStartMon.value = appState.scheduleData.metadata.semesterStartMonday;
+        textareaEditor.value = JSON.stringify(appState.scheduleData, null, 2);
+        setDateSelection(REFERENCE_TODAY);
+        showJsonToast("已恢复为默认中国矿业大学（北京）2026-2027-1课表数据！");
+      });
+
+      // Copy JSON
+      document.getElementById("btnCopyJsonText").addEventListener("click", () => {
+        textareaEditor.select();
+        try {
+          document.execCommand("copy");
+          showJsonToast("已成功复制完整 JSON 数据到剪贴板！");
+        } catch (err) {
+          showJsonToast("复制失败，请手动全选复制文本框内容。", true);
+        }
+      });
+
+      // Upload JSON File
+      document.getElementById("inputJsonFileUpload").addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          try {
+            const parsed = JSON.parse(evt.target.result);
+            if (!parsed.courses || !parsed.metadata) {
+              showJsonToast("JSON 文件缺少 metadata 或 courses 字段，请检查格式。", true);
+              return;
+            }
+            appState.scheduleData = parsed;
+            rebuildWeeksCalendar();
+            textareaEditor.value = JSON.stringify(appState.scheduleData, null, 2);
+            inputStartMon.value = appState.scheduleData.metadata.semesterStartMonday || "2026-08-31";
+            setDateSelection(appState.selectedDate);
+            showJsonToast(`已成功从文件 "${file.name}" 读取课表数据并更新全套日历视图！`);
+          } catch (err) {
+            showJsonToast("JSON 解析失败：" + err.message, true);
+          }
+        };
+        reader.readAsText(file, "utf-8");
+      });
+
+      // Apply JSON Edits
+      document.getElementById("btnApplyJsonChanges").addEventListener("click", () => {
+        try {
+          const parsed = JSON.parse(textareaEditor.value);
+          if (!parsed.courses || !parsed.metadata) {
+            showJsonToast("JSON 数据结构需包含 metadata 和 courses 字段。", true);
+            return;
+          }
+          appState.scheduleData = parsed;
+          rebuildWeeksCalendar();
+          setDateSelection(appState.selectedDate);
+          showJsonToast("JSON 数据已应用，课表视图已实时更新！");
+          setTimeout(() => {
+            jsonModal.classList.add("hidden");
+          }, 600);
+        } catch (err) {
+          showJsonToast("JSON 语法错误，请检查格式：" + err.message, true);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
