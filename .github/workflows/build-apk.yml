@@ -1,0 +1,60 @@
+name: Build CUMTB Schedule Android APK
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Expand initial Android project source
+        shell: bash
+        run: |
+          if [ ! -f app/src/main/AndroidManifest.xml ]; then
+            base64 --decode source/CUMTBScheduleAndroid.tar.xz.b64 |
+              tar -xJ --strip-components=1 --exclude='CUMTBScheduleAndroid/.github/workflows/build-apk.yml' -f -
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "Expand Android source tree from initial upload"
+              git push origin HEAD:main
+            fi
+          fi
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Ensure Android API 34 is installed
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Set up Gradle 8.5
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.5'
+
+      - name: Build APKs
+        run: gradle --no-daemon --stacktrace assembleDebug assembleRelease
+
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cumtb-schedule-apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
